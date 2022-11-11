@@ -9,16 +9,22 @@ using System.Windows.Forms;
 
 namespace App_Learn_English
 {
-    public partial class Form_Import_DB : DevExpress.XtraEditors.XtraForm
+    public partial class Form_Main : DevExpress.XtraEditors.XtraForm
     {
-        public Form_Import_DB()
+        public Form_Main()
         {
             InitializeComponent();
         }
 
-        private void Form_Import_DB_Load(object sender, EventArgs e)
+        private void MainView_Load(object sender, EventArgs e)
         {
             Set_Form_Bottom_Right_Screen();
+        }
+
+        private void Set_Form_BackGround_Transparent()
+        {
+            this.BackColor = Color.Red;
+            this.TransparencyKey = Color.Red;
         }
 
         private void Set_Form_Bottom_Right_Screen()
@@ -31,11 +37,6 @@ namespace App_Learn_English
         private void lbl_Close_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void lbl_Import_Data_Input_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

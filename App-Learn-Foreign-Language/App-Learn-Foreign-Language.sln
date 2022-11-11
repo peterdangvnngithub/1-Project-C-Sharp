@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App-Learn-English", "App-Learn-English\App-Learn-English.csproj", "{BF5E4CEB-2C3E-48A6-9A41-4534393163E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App-Learn-Foreign-Language", "App-Learn-Foreign-Language\App-Learn-Foreign-Language.csproj", "{BF5E4CEB-2C3E-48A6-9A41-4534393163E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
