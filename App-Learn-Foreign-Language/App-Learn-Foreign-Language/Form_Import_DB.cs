@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using App_Learn_Foreign_Language;
 using DevExpress.DataAccess.Excel;
@@ -21,9 +23,13 @@ namespace App_Learn_English
 
         private void Set_Form_Bottom_Right_Screen()
         {
+            // Set form in bottom right
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - this.Width,
                 Screen.PrimaryScreen.WorkingArea.Height - this.Height);
+
+            //Set form alway top
+            this.TopMost = true;
         }
 
         private void lbl_Close_Click(object sender, EventArgs e)
@@ -65,59 +71,70 @@ namespace App_Learn_English
 
                 excelDataSource.Fill();
 
-                DataTable tableEmployee = new DataTable();
-                tableEmployee.Columns.Add("STT", typeof(int));
-                tableEmployee.Columns.Add("CODE", typeof(string));
-                tableEmployee.Columns.Add("NAME", typeof(string));
-                tableEmployee.Columns.Add("M", typeof(string));
-                tableEmployee.Columns.Add("E1", typeof(string));
-                tableEmployee.Columns.Add("E2", typeof(string));
-                tableEmployee.Columns.Add("E3", typeof(string));
-                tableEmployee.Columns.Add("E4", typeof(string));
-                tableEmployee.Columns.Add("WK", typeof(string));
+                DataTable tableDataVocabulary = new DataTable();
+                tableDataVocabulary.Columns.Add("STT", typeof(int));
+                tableDataVocabulary.Columns.Add("Type", typeof(string));
+                tableDataVocabulary.Columns.Add("Word", typeof(string));
+                tableDataVocabulary.Columns.Add("API", typeof(string));
+                tableDataVocabulary.Columns.Add("Explain_Vietnamese", typeof(string));
+                tableDataVocabulary.Columns.Add("Explain_English", typeof(string));
+                tableDataVocabulary.Columns.Add("Date_Study", typeof(DateTime));
 
-                tableEmployee = excelDataSource.ExcelToDataTable();
 
-                //using (ATPOS_Entities db = new ATPOS_Entities())
-                //{
-                //    foreach (DataRow row in tableEmployee.Rows)
-                //    {
-                //        string _EmpCode = Convert.ToString(row["CODE"]);
-                //        string _M = Convert.ToString(row["M"]);
-                //        string _E1 = Convert.ToString(row["E1"]);
-                //        string _E2 = Convert.ToString(row["E2"]);
-                //        string _E3 = Convert.ToString(row["E3"]);
-                //        string _E4 = Convert.ToString(row["E4"]);
-                //        string _WK = Convert.ToString(row["WK"]);
+                tableDataVocabulary = excelDataSource.ExcelToDataTable();
 
-                //        //Check exit employee in date in DB
-                //        var isExist = db.DATA_SHIFT.Where(x => (x.WORKER.Equals(_EmpCode))
-                //                                            && (x.DATE.Equals(get_date.Date))).SingleOrDefault();
-
-                //        if (isExist != null)
-                //        {
-                //            //If exist employee update info
-
-                //        }
-                //        else
-                //        {
-                //            //Otherwise add new
-                //        }
-
-                //        //Excute
-                //        try
-                //        {
-                //            db.SaveChanges();
-                //        }
-                //        catch (Exception ex)
-                //        {
-                //            MessageBox.Show($"Loại lỗi: {ex.GetType()}.\nLỗi: {ex}", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error); // What is the real exception?
-                //        }
-                //    }
-                //}
+                List<Vocabulary> listVocabulary = 
+                    (
+                        from
+                            row in tableDataVocabulary.AsEnumerable()
+                        select new Vocabulary
+                        {
+                            STT                  = Convert.ToInt32(row["STT"]),
+                            Type                 = Convert.ToString(row["Type"]),
+                            Word                 = Convert.ToString(row["Word"]),
+                            API                  = Convert.ToString(row["API"]),
+                            Explain_Vietnamese   = Convert.ToString(row["Explain_Vietnamese"]),
+                            Explain_English      = Convert.ToString(row["Explain_English"]),
+                            Date_Study           = row["Date_Study"] != DBNull.Value ? Convert.ToDateTime(row["Date_Study"]) : DateTime.Now
+                        }).ToList();
 
                 MessageBox.Show("Import dữ liệu chương trình thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Hide();
+
+                Form_Main _formMain = new Form_Main(listVocabulary);
+                _formMain.Show();
             }
+        }
+
+        #region Moveable
+        bool mouseDown = false;
+        Point StartPoint = new Point(0, 0);
+        private void panel_Top_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            StartPoint = new Point(e.X, e.Y);
+        }
+
+        private void panel_Top_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+            StartPoint = new Point(e.X, e.Y);
+        }
+
+        private void panel_Top_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(mouseDown)
+            {
+                Point currentPoint = PointToScreen(e.Location);
+                this.Location = new Point(currentPoint.X - StartPoint.X, currentPoint.Y - StartPoint.Y);
+            }    
+        }
+        #endregion
+
+        private void lbl_DocBottom_Click(object sender, EventArgs e)
+        {
+            Set_Form_Bottom_Right_Screen();
         }
     }
 }

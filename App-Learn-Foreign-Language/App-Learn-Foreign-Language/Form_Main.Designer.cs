@@ -38,19 +38,22 @@ namespace App_Learn_English
             this.mvvmContext1 = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             this.panel_Top = new System.Windows.Forms.Panel();
             this.lbl_Minimize = new System.Windows.Forms.Label();
+            this.lbl_DocBottom = new System.Windows.Forms.Label();
             this.lbl_Close = new System.Windows.Forms.Label();
             this.panelBottom = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_OneDay = new System.Windows.Forms.Label();
+            this.lbl_TenMinute = new System.Windows.Forms.Label();
+            this.lbl_OneMinute = new System.Windows.Forms.Label();
+            this.lbl_FiveĐays = new System.Windows.Forms.Label();
             this.panel_Vocabulary = new System.Windows.Forms.Panel();
             this.panel_Vocabulary_Main = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbl_Word = new System.Windows.Forms.Label();
+            this.lbl_API = new System.Windows.Forms.Label();
             this.panel_Vocabulary_Right = new System.Windows.Forms.Panel();
             this.panel_Vocabulary_Left = new System.Windows.Forms.Panel();
             this.panel_Explain = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbl_Explain = new System.Windows.Forms.Label();
+            this.lbl_ThirtyMinute = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).BeginInit();
             this.panel_Top.SuspendLayout();
@@ -72,33 +75,33 @@ namespace App_Learn_English
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Location = new System.Drawing.Point(5, 5);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(280, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(270, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 250);
+            this.barDockControlBottom.Location = new System.Drawing.Point(5, 245);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(280, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(270, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Location = new System.Drawing.Point(5, 5);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 250);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 240);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(280, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(275, 5);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 250);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 240);
             // 
             // mvvmContext1
             // 
@@ -107,31 +110,49 @@ namespace App_Learn_English
             // panel_Top
             // 
             this.panel_Top.Controls.Add(this.lbl_Minimize);
+            this.panel_Top.Controls.Add(this.lbl_DocBottom);
             this.panel_Top.Controls.Add(this.lbl_Close);
             this.panel_Top.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_Top.Location = new System.Drawing.Point(0, 0);
+            this.panel_Top.Location = new System.Drawing.Point(5, 5);
             this.panel_Top.Name = "panel_Top";
-            this.panel_Top.Size = new System.Drawing.Size(280, 25);
+            this.panel_Top.Size = new System.Drawing.Size(270, 25);
             this.panel_Top.TabIndex = 4;
+            this.panel_Top.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_Top_MouseDown);
+            this.panel_Top.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_Top_MouseMove);
+            this.panel_Top.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel_Top_MouseUp);
             // 
             // lbl_Minimize
             // 
             this.lbl_Minimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbl_Minimize.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lbl_Minimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(75)))));
-            this.lbl_Minimize.Location = new System.Drawing.Point(210, 0);
+            this.lbl_Minimize.Location = new System.Drawing.Point(165, 0);
             this.lbl_Minimize.Name = "lbl_Minimize";
             this.lbl_Minimize.Size = new System.Drawing.Size(35, 25);
-            this.lbl_Minimize.TabIndex = 1;
+            this.lbl_Minimize.TabIndex = 3;
             this.lbl_Minimize.Text = "-";
             this.lbl_Minimize.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_Minimize.Click += new System.EventHandler(this.lbl_Minimize_Click);
+            // 
+            // lbl_DocBottom
+            // 
+            this.lbl_DocBottom.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_DocBottom.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lbl_DocBottom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(75)))));
+            this.lbl_DocBottom.Location = new System.Drawing.Point(200, 0);
+            this.lbl_DocBottom.Name = "lbl_DocBottom";
+            this.lbl_DocBottom.Size = new System.Drawing.Size(35, 25);
+            this.lbl_DocBottom.TabIndex = 2;
+            this.lbl_DocBottom.Text = "↓";
+            this.lbl_DocBottom.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbl_DocBottom.Click += new System.EventHandler(this.lbl_DocBottom_Click);
             // 
             // lbl_Close
             // 
             this.lbl_Close.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbl_Close.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lbl_Close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(75)))));
-            this.lbl_Close.Location = new System.Drawing.Point(245, 0);
+            this.lbl_Close.Location = new System.Drawing.Point(235, 0);
             this.lbl_Close.Name = "lbl_Close";
             this.lbl_Close.Size = new System.Drawing.Size(35, 25);
             this.lbl_Close.TabIndex = 0;
@@ -141,63 +162,68 @@ namespace App_Learn_English
             // 
             // panelBottom
             // 
-            this.panelBottom.Controls.Add(this.label4);
-            this.panelBottom.Controls.Add(this.label2);
-            this.panelBottom.Controls.Add(this.label3);
-            this.panelBottom.Controls.Add(this.label1);
+            this.panelBottom.Controls.Add(this.lbl_ThirtyMinute);
+            this.panelBottom.Controls.Add(this.lbl_OneDay);
+            this.panelBottom.Controls.Add(this.lbl_TenMinute);
+            this.panelBottom.Controls.Add(this.lbl_OneMinute);
+            this.panelBottom.Controls.Add(this.lbl_FiveĐays);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(0, 225);
+            this.panelBottom.Location = new System.Drawing.Point(5, 220);
             this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(280, 25);
+            this.panelBottom.Size = new System.Drawing.Size(270, 25);
             this.panelBottom.TabIndex = 9;
             // 
-            // label4
+            // lbl_OneDay
             // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
-            this.label4.Location = new System.Drawing.Point(140, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 25);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "1 Ngày";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_OneDay.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_OneDay.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.lbl_OneDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
+            this.lbl_OneDay.Location = new System.Drawing.Point(162, 0);
+            this.lbl_OneDay.Name = "lbl_OneDay";
+            this.lbl_OneDay.Size = new System.Drawing.Size(54, 25);
+            this.lbl_OneDay.TabIndex = 9;
+            this.lbl_OneDay.Text = "1 Ngày";
+            this.lbl_OneDay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_OneDay.Click += new System.EventHandler(this.lbl_OneDay_Click);
             // 
-            // label2
+            // lbl_TenMinute
             // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
-            this.label2.Location = new System.Drawing.Point(70, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 25);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "10 Phút";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_TenMinute.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbl_TenMinute.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.lbl_TenMinute.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
+            this.lbl_TenMinute.Location = new System.Drawing.Point(54, 0);
+            this.lbl_TenMinute.Name = "lbl_TenMinute";
+            this.lbl_TenMinute.Size = new System.Drawing.Size(54, 25);
+            this.lbl_TenMinute.TabIndex = 8;
+            this.lbl_TenMinute.Text = "10 Phút";
+            this.lbl_TenMinute.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_TenMinute.Click += new System.EventHandler(this.lbl_TenMinute_Click);
             // 
-            // label3
+            // lbl_OneMinute
             // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 25);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "1 Phút";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_OneMinute.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbl_OneMinute.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.lbl_OneMinute.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
+            this.lbl_OneMinute.Location = new System.Drawing.Point(0, 0);
+            this.lbl_OneMinute.Name = "lbl_OneMinute";
+            this.lbl_OneMinute.Size = new System.Drawing.Size(54, 25);
+            this.lbl_OneMinute.TabIndex = 7;
+            this.lbl_OneMinute.Text = "1 Phút";
+            this.lbl_OneMinute.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_OneMinute.Click += new System.EventHandler(this.lbl_OneMinute_Click);
             // 
-            // label1
+            // lbl_FiveĐays
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
-            this.label1.Location = new System.Drawing.Point(210, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 25);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "5 Ngày";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_FiveĐays.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_FiveĐays.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.lbl_FiveĐays.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
+            this.lbl_FiveĐays.Location = new System.Drawing.Point(216, 0);
+            this.lbl_FiveĐays.Name = "lbl_FiveĐays";
+            this.lbl_FiveĐays.Size = new System.Drawing.Size(54, 25);
+            this.lbl_FiveĐays.TabIndex = 6;
+            this.lbl_FiveĐays.Text = "5 Ngày";
+            this.lbl_FiveĐays.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_FiveĐays.Click += new System.EventHandler(this.lbl_FiveĐays_Click);
             // 
             // panel_Vocabulary
             // 
@@ -205,38 +231,51 @@ namespace App_Learn_English
             this.panel_Vocabulary.Controls.Add(this.panel_Vocabulary_Right);
             this.panel_Vocabulary.Controls.Add(this.panel_Vocabulary_Left);
             this.panel_Vocabulary.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_Vocabulary.Location = new System.Drawing.Point(0, 25);
+            this.panel_Vocabulary.Location = new System.Drawing.Point(5, 30);
             this.panel_Vocabulary.Name = "panel_Vocabulary";
-            this.panel_Vocabulary.Size = new System.Drawing.Size(280, 77);
+            this.panel_Vocabulary.Size = new System.Drawing.Size(270, 75);
             this.panel_Vocabulary.TabIndex = 10;
             // 
             // panel_Vocabulary_Main
             // 
-            this.panel_Vocabulary_Main.Controls.Add(this.label5);
+            this.panel_Vocabulary_Main.Controls.Add(this.lbl_Word);
+            this.panel_Vocabulary_Main.Controls.Add(this.lbl_API);
             this.panel_Vocabulary_Main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_Vocabulary_Main.Location = new System.Drawing.Point(40, 0);
+            this.panel_Vocabulary_Main.Location = new System.Drawing.Point(30, 0);
             this.panel_Vocabulary_Main.Name = "panel_Vocabulary_Main";
-            this.panel_Vocabulary_Main.Size = new System.Drawing.Size(200, 77);
+            this.panel_Vocabulary_Main.Size = new System.Drawing.Size(210, 75);
             this.panel_Vocabulary_Main.TabIndex = 2;
             // 
-            // label5
+            // lbl_Word
             // 
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Black", 16.25F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(75)))));
-            this.label5.Location = new System.Drawing.Point(0, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(200, 77);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "New Vocabulary";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_Word.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_Word.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lbl_Word.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(75)))));
+            this.lbl_Word.Location = new System.Drawing.Point(0, 0);
+            this.lbl_Word.Name = "lbl_Word";
+            this.lbl_Word.Size = new System.Drawing.Size(210, 50);
+            this.lbl_Word.TabIndex = 2;
+            this.lbl_Word.Text = "New Word";
+            this.lbl_Word.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // lbl_API
+            // 
+            this.lbl_API.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lbl_API.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_API.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(141)))), ((int)(((byte)(188)))));
+            this.lbl_API.Location = new System.Drawing.Point(0, 50);
+            this.lbl_API.Name = "lbl_API";
+            this.lbl_API.Size = new System.Drawing.Size(210, 25);
+            this.lbl_API.TabIndex = 1;
+            this.lbl_API.Text = "API";
+            this.lbl_API.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel_Vocabulary_Right
             // 
             this.panel_Vocabulary_Right.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel_Vocabulary_Right.Location = new System.Drawing.Point(240, 0);
             this.panel_Vocabulary_Right.Name = "panel_Vocabulary_Right";
-            this.panel_Vocabulary_Right.Size = new System.Drawing.Size(40, 77);
+            this.panel_Vocabulary_Right.Size = new System.Drawing.Size(30, 75);
             this.panel_Vocabulary_Right.TabIndex = 1;
             // 
             // panel_Vocabulary_Left
@@ -244,29 +283,42 @@ namespace App_Learn_English
             this.panel_Vocabulary_Left.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_Vocabulary_Left.Location = new System.Drawing.Point(0, 0);
             this.panel_Vocabulary_Left.Name = "panel_Vocabulary_Left";
-            this.panel_Vocabulary_Left.Size = new System.Drawing.Size(40, 77);
+            this.panel_Vocabulary_Left.Size = new System.Drawing.Size(30, 75);
             this.panel_Vocabulary_Left.TabIndex = 0;
             // 
             // panel_Explain
             // 
-            this.panel_Explain.Controls.Add(this.label6);
+            this.panel_Explain.Controls.Add(this.lbl_Explain);
             this.panel_Explain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_Explain.Location = new System.Drawing.Point(0, 102);
+            this.panel_Explain.Location = new System.Drawing.Point(5, 105);
             this.panel_Explain.Name = "panel_Explain";
-            this.panel_Explain.Size = new System.Drawing.Size(280, 123);
+            this.panel_Explain.Size = new System.Drawing.Size(270, 115);
             this.panel_Explain.TabIndex = 11;
             // 
-            // label6
+            // lbl_Explain
             // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(280, 123);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Explain";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_Explain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_Explain.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Explain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
+            this.lbl_Explain.Location = new System.Drawing.Point(0, 0);
+            this.lbl_Explain.Name = "lbl_Explain";
+            this.lbl_Explain.Size = new System.Drawing.Size(270, 115);
+            this.lbl_Explain.TabIndex = 0;
+            this.lbl_Explain.Text = "Explain";
+            this.lbl_Explain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_ThirtyMinute
+            // 
+            this.lbl_ThirtyMinute.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbl_ThirtyMinute.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.lbl_ThirtyMinute.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
+            this.lbl_ThirtyMinute.Location = new System.Drawing.Point(108, 0);
+            this.lbl_ThirtyMinute.Name = "lbl_ThirtyMinute";
+            this.lbl_ThirtyMinute.Size = new System.Drawing.Size(54, 25);
+            this.lbl_ThirtyMinute.TabIndex = 10;
+            this.lbl_ThirtyMinute.Text = "30 Phút";
+            this.lbl_ThirtyMinute.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_ThirtyMinute.Click += new System.EventHandler(this.lbl_ThirtyMinute_Click);
             // 
             // Form_Main
             // 
@@ -285,6 +337,7 @@ namespace App_Learn_English
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_Main";
+            this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "MainView";
             this.Load += new System.EventHandler(this.MainView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
@@ -309,19 +362,22 @@ namespace App_Learn_English
         private DevExpress.Utils.MVVM.MVVMContext mvvmContext1;
         private System.Windows.Forms.Panel panel_Top;
         private System.Windows.Forms.Label lbl_Close;
-        private System.Windows.Forms.Label lbl_Minimize;
         private System.Windows.Forms.Panel panelBottom;
         private System.Windows.Forms.Panel panel_Explain;
         private System.Windows.Forms.Panel panel_Vocabulary;
         private System.Windows.Forms.Panel panel_Vocabulary_Main;
         private System.Windows.Forms.Panel panel_Vocabulary_Right;
         private System.Windows.Forms.Panel panel_Vocabulary_Left;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbl_FiveĐays;
+        private System.Windows.Forms.Label lbl_OneDay;
+        private System.Windows.Forms.Label lbl_TenMinute;
+        private System.Windows.Forms.Label lbl_OneMinute;
+        private System.Windows.Forms.Label lbl_Explain;
+        private System.Windows.Forms.Label lbl_API;
+        private System.Windows.Forms.Label lbl_Word;
+        private System.Windows.Forms.Label lbl_Minimize;
+        private System.Windows.Forms.Label lbl_DocBottom;
+        private System.Windows.Forms.Label lbl_ThirtyMinute;
     }
 }
 
