@@ -37,6 +37,11 @@ namespace App_Learn_English
             Application.Exit();
         }
 
+        private void lbl_DocBottom_Click(object sender, EventArgs e)
+        {
+            Set_Form_Bottom_Right_Screen();
+        }
+
         private void lbl_Import_Data_Input_Click(object sender, EventArgs e)
         {
             //Get link file excel
@@ -78,8 +83,8 @@ namespace App_Learn_English
                 tableDataVocabulary.Columns.Add("API", typeof(string));
                 tableDataVocabulary.Columns.Add("Explain_Vietnamese", typeof(string));
                 tableDataVocabulary.Columns.Add("Explain_English", typeof(string));
+                tableDataVocabulary.Columns.Add("Example", typeof(string));
                 tableDataVocabulary.Columns.Add("Date_Study", typeof(DateTime));
-
 
                 tableDataVocabulary = excelDataSource.ExcelToDataTable();
 
@@ -89,13 +94,14 @@ namespace App_Learn_English
                             row in tableDataVocabulary.AsEnumerable()
                         select new Vocabulary
                         {
-                            STT                  = Convert.ToInt32(row["STT"]),
-                            Type                 = Convert.ToString(row["Type"]),
-                            Word                 = Convert.ToString(row["Word"]),
-                            API                  = Convert.ToString(row["API"]),
-                            Explain_Vietnamese   = Convert.ToString(row["Explain_Vietnamese"]),
-                            Explain_English      = Convert.ToString(row["Explain_English"]),
-                            Date_Study           = row["Date_Study"] != DBNull.Value ? Convert.ToDateTime(row["Date_Study"]) : DateTime.Now
+                            STT                 = Convert.ToInt32(row["STT"]),
+                            Type                = Convert.ToString(row["Type"]),
+                            Word                = Convert.ToString(row["Word"]),
+                            API                 = Convert.ToString(row["API"]),
+                            Explain_Vietnamese  = Convert.ToString(row["Explain_Vietnamese"]),
+                            Explain_English     = Convert.ToString(row["Explain_English"]),
+                            Example             = Convert.ToString(row["Example"]),
+                            Date_Study          = row["Date_Study"] != DBNull.Value ? Convert.ToDateTime(row["Date_Study"]) : DateTime.Now
                         }).ToList();
 
                 MessageBox.Show("Import dữ liệu chương trình thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -131,10 +137,5 @@ namespace App_Learn_English
             }    
         }
         #endregion
-
-        private void lbl_DocBottom_Click(object sender, EventArgs e)
-        {
-            Set_Form_Bottom_Right_Screen();
-        }
     }
 }

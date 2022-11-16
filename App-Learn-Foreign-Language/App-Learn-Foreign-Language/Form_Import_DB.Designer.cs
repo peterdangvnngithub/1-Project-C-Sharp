@@ -37,10 +37,10 @@ namespace App_Learn_English
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.mvvmContext1 = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             this.panel_Top = new System.Windows.Forms.Panel();
+            this.lbl_DocBottom = new System.Windows.Forms.Label();
             this.lbl_Close = new System.Windows.Forms.Label();
             this.panel_Explain = new System.Windows.Forms.Panel();
             this.lbl_Import_Data_Input = new System.Windows.Forms.Label();
-            this.lbl_DocBottom = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).BeginInit();
             this.panel_Top.SuspendLayout();
@@ -104,6 +104,19 @@ namespace App_Learn_English
             this.panel_Top.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_Top_MouseMove);
             this.panel_Top.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel_Top_MouseUp);
             // 
+            // lbl_DocBottom
+            // 
+            this.lbl_DocBottom.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_DocBottom.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lbl_DocBottom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(75)))));
+            this.lbl_DocBottom.Location = new System.Drawing.Point(171, 0);
+            this.lbl_DocBottom.Name = "lbl_DocBottom";
+            this.lbl_DocBottom.Size = new System.Drawing.Size(35, 25);
+            this.lbl_DocBottom.TabIndex = 1;
+            this.lbl_DocBottom.Text = "↓";
+            this.lbl_DocBottom.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbl_DocBottom.Click += new System.EventHandler(this.lbl_DocBottom_Click);
+            // 
             // lbl_Close
             // 
             this.lbl_Close.Dock = System.Windows.Forms.DockStyle.Right;
@@ -139,19 +152,6 @@ namespace App_Learn_English
             this.lbl_Import_Data_Input.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_Import_Data_Input.Click += new System.EventHandler(this.lbl_Import_Data_Input_Click);
             // 
-            // lbl_DocBottom
-            // 
-            this.lbl_DocBottom.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbl_DocBottom.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lbl_DocBottom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(75)))));
-            this.lbl_DocBottom.Location = new System.Drawing.Point(171, 0);
-            this.lbl_DocBottom.Name = "lbl_DocBottom";
-            this.lbl_DocBottom.Size = new System.Drawing.Size(35, 25);
-            this.lbl_DocBottom.TabIndex = 1;
-            this.lbl_DocBottom.Text = "↓";
-            this.lbl_DocBottom.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lbl_DocBottom.Click += new System.EventHandler(this.lbl_DocBottom_Click);
-            // 
             // Form_Import_DB
             // 
             this.Appearance.Options.UseFont = true;
@@ -166,6 +166,7 @@ namespace App_Learn_English
             this.Controls.Add(this.barDockControlTop);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.IconOptions.Image = global::App_Learn_Foreign_Language.Properties.Resources.icon_language;
             this.Name = "Form_Import_DB";
             this.Text = "MainView";
             this.Load += new System.EventHandler(this.Form_Import_DB_Load);

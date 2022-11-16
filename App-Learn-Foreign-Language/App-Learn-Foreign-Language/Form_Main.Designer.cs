@@ -29,18 +29,12 @@ namespace App_Learn_English
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.mvvmContext1 = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             this.panel_Top = new System.Windows.Forms.Panel();
             this.lbl_Minimize = new System.Windows.Forms.Label();
             this.lbl_DocBottom = new System.Windows.Forms.Label();
             this.lbl_Close = new System.Windows.Forms.Label();
             this.panelBottom = new System.Windows.Forms.Panel();
+            this.lbl_ThirtyMinute = new System.Windows.Forms.Label();
             this.lbl_OneDay = new System.Windows.Forms.Label();
             this.lbl_TenMinute = new System.Windows.Forms.Label();
             this.lbl_OneMinute = new System.Windows.Forms.Label();
@@ -53,59 +47,15 @@ namespace App_Learn_English
             this.panel_Vocabulary_Left = new System.Windows.Forms.Panel();
             this.panel_Explain = new System.Windows.Forms.Panel();
             this.lbl_Explain = new System.Windows.Forms.Label();
-            this.lbl_ThirtyMinute = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_loudspeaker = new System.Windows.Forms.Label();
             this.panel_Top.SuspendLayout();
             this.panelBottom.SuspendLayout();
             this.panel_Vocabulary.SuspendLayout();
             this.panel_Vocabulary_Main.SuspendLayout();
+            this.panel_Vocabulary_Right.SuspendLayout();
             this.panel_Explain.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // barManager1
-            // 
-            this.barManager1.DockControls.Add(this.barDockControlTop);
-            this.barManager1.DockControls.Add(this.barDockControlBottom);
-            this.barManager1.DockControls.Add(this.barDockControlLeft);
-            this.barManager1.DockControls.Add(this.barDockControlRight);
-            this.barManager1.Form = this;
-            // 
-            // barDockControlTop
-            // 
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(5, 5);
-            this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(270, 0);
-            // 
-            // barDockControlBottom
-            // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(5, 245);
-            this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(270, 0);
-            // 
-            // barDockControlLeft
-            // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(5, 5);
-            this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 240);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(275, 5);
-            this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 240);
-            // 
-            // mvvmContext1
-            // 
-            this.mvvmContext1.ContainerControl = this;
             // 
             // panel_Top
             // 
@@ -172,6 +122,19 @@ namespace App_Learn_English
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(270, 25);
             this.panelBottom.TabIndex = 9;
+            // 
+            // lbl_ThirtyMinute
+            // 
+            this.lbl_ThirtyMinute.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbl_ThirtyMinute.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.lbl_ThirtyMinute.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
+            this.lbl_ThirtyMinute.Location = new System.Drawing.Point(108, 0);
+            this.lbl_ThirtyMinute.Name = "lbl_ThirtyMinute";
+            this.lbl_ThirtyMinute.Size = new System.Drawing.Size(54, 25);
+            this.lbl_ThirtyMinute.TabIndex = 10;
+            this.lbl_ThirtyMinute.Text = "30 Phút";
+            this.lbl_ThirtyMinute.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_ThirtyMinute.Click += new System.EventHandler(this.lbl_ThirtyMinute_Click);
             // 
             // lbl_OneDay
             // 
@@ -256,7 +219,7 @@ namespace App_Learn_English
             this.lbl_Word.Size = new System.Drawing.Size(210, 50);
             this.lbl_Word.TabIndex = 2;
             this.lbl_Word.Text = "New Word";
-            this.lbl_Word.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lbl_Word.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbl_API
             // 
@@ -272,6 +235,8 @@ namespace App_Learn_English
             // 
             // panel_Vocabulary_Right
             // 
+            this.panel_Vocabulary_Right.Controls.Add(this.lbl_loudspeaker);
+            this.panel_Vocabulary_Right.Controls.Add(this.panel1);
             this.panel_Vocabulary_Right.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel_Vocabulary_Right.Location = new System.Drawing.Point(240, 0);
             this.panel_Vocabulary_Right.Name = "panel_Vocabulary_Right";
@@ -298,7 +263,7 @@ namespace App_Learn_English
             // lbl_Explain
             // 
             this.lbl_Explain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_Explain.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Explain.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lbl_Explain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
             this.lbl_Explain.Location = new System.Drawing.Point(0, 0);
             this.lbl_Explain.Name = "lbl_Explain";
@@ -307,18 +272,26 @@ namespace App_Learn_English
             this.lbl_Explain.Text = "Explain";
             this.lbl_Explain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lbl_ThirtyMinute
+            // panel1
             // 
-            this.lbl_ThirtyMinute.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbl_ThirtyMinute.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.lbl_ThirtyMinute.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
-            this.lbl_ThirtyMinute.Location = new System.Drawing.Point(108, 0);
-            this.lbl_ThirtyMinute.Name = "lbl_ThirtyMinute";
-            this.lbl_ThirtyMinute.Size = new System.Drawing.Size(54, 25);
-            this.lbl_ThirtyMinute.TabIndex = 10;
-            this.lbl_ThirtyMinute.Text = "30 Phút";
-            this.lbl_ThirtyMinute.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_ThirtyMinute.Click += new System.EventHandler(this.lbl_ThirtyMinute_Click);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(30, 25);
+            this.panel1.TabIndex = 0;
+            // 
+            // lbl_loudspeaker
+            // 
+            this.lbl_loudspeaker.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl_loudspeaker.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lbl_loudspeaker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(75)))));
+            this.lbl_loudspeaker.Location = new System.Drawing.Point(0, 25);
+            this.lbl_loudspeaker.Name = "lbl_loudspeaker";
+            this.lbl_loudspeaker.Size = new System.Drawing.Size(30, 25);
+            this.lbl_loudspeaker.TabIndex = 1;
+            this.lbl_loudspeaker.Text = "🕪";
+            this.lbl_loudspeaker.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbl_loudspeaker.Click += new System.EventHandler(this.lbl_loudspeaker_Click);
             // 
             // Form_Main
             // 
@@ -330,36 +303,24 @@ namespace App_Learn_English
             this.Controls.Add(this.panel_Vocabulary);
             this.Controls.Add(this.panelBottom);
             this.Controls.Add(this.panel_Top);
-            this.Controls.Add(this.barDockControlLeft);
-            this.Controls.Add(this.barDockControlRight);
-            this.Controls.Add(this.barDockControlBottom);
-            this.Controls.Add(this.barDockControlTop);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.IconOptions.Image = global::App_Learn_Foreign_Language.Properties.Resources.icon_language;
             this.Name = "Form_Main";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "MainView";
             this.Load += new System.EventHandler(this.MainView_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).EndInit();
             this.panel_Top.ResumeLayout(false);
             this.panelBottom.ResumeLayout(false);
             this.panel_Vocabulary.ResumeLayout(false);
             this.panel_Vocabulary_Main.ResumeLayout(false);
+            this.panel_Vocabulary_Right.ResumeLayout(false);
             this.panel_Explain.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private DevExpress.XtraBars.BarManager barManager1;
-        private DevExpress.XtraBars.BarDockControl barDockControlTop;
-        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
-        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
-        private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.Utils.MVVM.MVVMContext mvvmContext1;
         private System.Windows.Forms.Panel panel_Top;
         private System.Windows.Forms.Label lbl_Close;
         private System.Windows.Forms.Panel panelBottom;
@@ -378,6 +339,8 @@ namespace App_Learn_English
         private System.Windows.Forms.Label lbl_Minimize;
         private System.Windows.Forms.Label lbl_DocBottom;
         private System.Windows.Forms.Label lbl_ThirtyMinute;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbl_loudspeaker;
     }
 }
 

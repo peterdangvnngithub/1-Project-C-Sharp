@@ -63,6 +63,16 @@ namespace App_Learn_Foreign_Language.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_language {
+            get {
+                object obj = ResourceManager.GetObject("icon-language", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_x_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-x-100", resourceCulture);

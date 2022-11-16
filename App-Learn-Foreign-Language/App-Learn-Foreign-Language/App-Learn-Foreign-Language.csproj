@@ -35,6 +35,9 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon-language.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v21.2" />
     <Reference Include="DevExpress.Data.Desktop.v21.2" />
@@ -48,6 +51,7 @@
     <Reference Include="DevExpress.Printing.v21.2.Core" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Speech" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -92,6 +96,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -104,6 +109,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-x-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-language.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon-language.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
