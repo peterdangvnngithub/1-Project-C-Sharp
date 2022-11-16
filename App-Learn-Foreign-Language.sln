@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App-Learn-Foreign-Language", "App-Learn-Foreign-Language\App-Learn-Foreign-Language.csproj", "{BF5E4CEB-2C3E-48A6-9A41-4534393163E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF5E4CEB-2C3E-48A6-9A41-4534393163E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF5E4CEB-2C3E-48A6-9A41-4534393163E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF5E4CEB-2C3E-48A6-9A41-4534393163E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF5E4CEB-2C3E-48A6-9A41-4534393163E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {63ECCC20-4CF3-4D2F-969F-44DCBB1A5F9F}
+	EndGlobalSection
+EndGlobal
