@@ -63,9 +63,9 @@ namespace App_Learn_Foreign_Language.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
-        internal static DevExpress.Utils.Svg.SvgImage exporttoxlsx {
+        internal static DevExpress.Utils.Svg.SvgImage exporttoxls {
             get {
-                object obj = ResourceManager.GetObject("exporttoxlsx", resourceCulture);
+                object obj = ResourceManager.GetObject("exporttoxls", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }

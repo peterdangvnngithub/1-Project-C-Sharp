@@ -31,7 +31,7 @@ namespace App_Learn_Foreign_Language
         {
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtn_Output = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.Action = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.gridControl_ListVocabulary = new DevExpress.XtraGrid.GridControl();
@@ -52,7 +52,7 @@ namespace App_Learn_Foreign_Language
             this.ribbon.MaxItemId = 2;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1});
+            this.Action});
             this.ribbon.Size = new System.Drawing.Size(442, 158);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
@@ -60,16 +60,15 @@ namespace App_Learn_Foreign_Language
             // 
             this.barBtn_Output.Caption = "Output Data";
             this.barBtn_Output.Id = 1;
-            this.barBtn_Output.ImageOptions.SvgImage = global::App_Learn_Foreign_Language.Properties.Resources.exporttoxlsx;
+            this.barBtn_Output.ImageOptions.SvgImage = global::App_Learn_Foreign_Language.Properties.Resources.exporttoxls;
             this.barBtn_Output.Name = "barBtn_Output";
-            this.barBtn_Output.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtn_Output_ItemClick);
+            this.barBtn_Output.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BarBtn_Output_ItemClick);
             // 
-            // ribbonPage1
+            // Action
             // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.Action.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "ribbonPage1";
+            this.Action.Name = "Action";
             // 
             // ribbonPageGroup1
             // 
@@ -124,7 +123,7 @@ namespace App_Learn_Foreign_Language
         #endregion
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        private DevExpress.XtraBars.Ribbon.RibbonPage Action;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraGrid.GridControl gridControl_ListVocabulary;

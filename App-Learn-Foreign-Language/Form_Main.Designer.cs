@@ -48,13 +48,14 @@ namespace App_Learn_English
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel_Vocabulary_Left = new System.Windows.Forms.Panel();
             this.panel_Explain = new System.Windows.Forms.Panel();
-            this.lbl_Explain = new System.Windows.Forms.Label();
+            this.memoEdit_Explain = new DevExpress.XtraEditors.MemoEdit();
             this.panel_Top.SuspendLayout();
             this.panelBottom.SuspendLayout();
             this.panel_Vocabulary.SuspendLayout();
             this.panel_Vocabulary_Main.SuspendLayout();
             this.panel_Vocabulary_Right.SuspendLayout();
             this.panel_Explain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit_Explain.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_Top
@@ -67,9 +68,9 @@ namespace App_Learn_English
             this.panel_Top.Name = "panel_Top";
             this.panel_Top.Size = new System.Drawing.Size(270, 25);
             this.panel_Top.TabIndex = 4;
-            this.panel_Top.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_Top_MouseDown);
-            this.panel_Top.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_Top_MouseMove);
-            this.panel_Top.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel_Top_MouseUp);
+            this.panel_Top.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_Top_MouseDown);
+            this.panel_Top.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel_Top_MouseMove);
+            this.panel_Top.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Panel_Top_MouseUp);
             // 
             // lbl_Minimize
             // 
@@ -82,7 +83,7 @@ namespace App_Learn_English
             this.lbl_Minimize.TabIndex = 3;
             this.lbl_Minimize.Text = "-";
             this.lbl_Minimize.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_Minimize.Click += new System.EventHandler(this.lbl_Minimize_Click);
+            this.lbl_Minimize.Click += new System.EventHandler(this.Lbl_Minimize_Click);
             // 
             // lbl_DocBottom
             // 
@@ -95,7 +96,7 @@ namespace App_Learn_English
             this.lbl_DocBottom.TabIndex = 2;
             this.lbl_DocBottom.Text = "↓";
             this.lbl_DocBottom.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lbl_DocBottom.Click += new System.EventHandler(this.lbl_DocBottom_Click);
+            this.lbl_DocBottom.Click += new System.EventHandler(this.Lbl_DocBottom_Click);
             // 
             // lbl_Close
             // 
@@ -108,7 +109,7 @@ namespace App_Learn_English
             this.lbl_Close.TabIndex = 0;
             this.lbl_Close.Text = "X";
             this.lbl_Close.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_Close.Click += new System.EventHandler(this.lbl_Close_Click);
+            this.lbl_Close.Click += new System.EventHandler(this.Lbl_Close_Click);
             // 
             // panelBottom
             // 
@@ -134,7 +135,7 @@ namespace App_Learn_English
             this.lbl_ThirtyMinute.TabIndex = 10;
             this.lbl_ThirtyMinute.Text = "30 Phút";
             this.lbl_ThirtyMinute.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_ThirtyMinute.Click += new System.EventHandler(this.lbl_ThirtyMinute_Click);
+            this.lbl_ThirtyMinute.Click += new System.EventHandler(this.Lbl_ThirtyMinute_Click);
             // 
             // lbl_OneDay
             // 
@@ -147,7 +148,7 @@ namespace App_Learn_English
             this.lbl_OneDay.TabIndex = 9;
             this.lbl_OneDay.Text = "1 Ngày";
             this.lbl_OneDay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_OneDay.Click += new System.EventHandler(this.lbl_OneDay_Click);
+            this.lbl_OneDay.Click += new System.EventHandler(this.Lbl_OneDay_Click);
             // 
             // lbl_TenMinute
             // 
@@ -160,7 +161,7 @@ namespace App_Learn_English
             this.lbl_TenMinute.TabIndex = 8;
             this.lbl_TenMinute.Text = "10 Phút";
             this.lbl_TenMinute.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_TenMinute.Click += new System.EventHandler(this.lbl_TenMinute_Click);
+            this.lbl_TenMinute.Click += new System.EventHandler(this.Lbl_TenMinute_Click);
             // 
             // lbl_OneMinute
             // 
@@ -173,7 +174,7 @@ namespace App_Learn_English
             this.lbl_OneMinute.TabIndex = 7;
             this.lbl_OneMinute.Text = "1 Phút";
             this.lbl_OneMinute.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_OneMinute.Click += new System.EventHandler(this.lbl_OneMinute_Click);
+            this.lbl_OneMinute.Click += new System.EventHandler(this.Lbl_OneMinute_Click);
             // 
             // lbl_FiveĐays
             // 
@@ -186,7 +187,7 @@ namespace App_Learn_English
             this.lbl_FiveĐays.TabIndex = 6;
             this.lbl_FiveĐays.Text = "5 Ngày";
             this.lbl_FiveĐays.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_FiveĐays.Click += new System.EventHandler(this.lbl_FiveĐays_Click);
+            this.lbl_FiveĐays.Click += new System.EventHandler(this.Lbl_FiveĐays_Click);
             // 
             // panel_Vocabulary
             // 
@@ -254,7 +255,7 @@ namespace App_Learn_English
             this.lbl_loudspeaker.TabIndex = 1;
             this.lbl_loudspeaker.Text = "🕪";
             this.lbl_loudspeaker.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lbl_loudspeaker.Click += new System.EventHandler(this.lbl_loudspeaker_Click);
+            this.lbl_loudspeaker.Click += new System.EventHandler(this.Lbl_loudspeaker_Click);
             // 
             // panel1
             // 
@@ -274,24 +275,28 @@ namespace App_Learn_English
             // 
             // panel_Explain
             // 
-            this.panel_Explain.Controls.Add(this.lbl_Explain);
+            this.panel_Explain.Controls.Add(this.memoEdit_Explain);
             this.panel_Explain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Explain.Location = new System.Drawing.Point(5, 105);
             this.panel_Explain.Name = "panel_Explain";
             this.panel_Explain.Size = new System.Drawing.Size(270, 115);
             this.panel_Explain.TabIndex = 11;
             // 
-            // lbl_Explain
+            // memoEdit_Explain
             // 
-            this.lbl_Explain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_Explain.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lbl_Explain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
-            this.lbl_Explain.Location = new System.Drawing.Point(0, 0);
-            this.lbl_Explain.Name = "lbl_Explain";
-            this.lbl_Explain.Size = new System.Drawing.Size(270, 115);
-            this.lbl_Explain.TabIndex = 0;
-            this.lbl_Explain.Text = "Explain";
-            this.lbl_Explain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.memoEdit_Explain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.memoEdit_Explain.EditValue = "Explain";
+            this.memoEdit_Explain.Location = new System.Drawing.Point(0, 0);
+            this.memoEdit_Explain.Name = "memoEdit_Explain";
+            this.memoEdit_Explain.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.memoEdit_Explain.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.memoEdit_Explain.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
+            this.memoEdit_Explain.Properties.Appearance.Options.UseBackColor = true;
+            this.memoEdit_Explain.Properties.Appearance.Options.UseFont = true;
+            this.memoEdit_Explain.Properties.Appearance.Options.UseForeColor = true;
+            this.memoEdit_Explain.Properties.ReadOnly = true;
+            this.memoEdit_Explain.Size = new System.Drawing.Size(270, 115);
+            this.memoEdit_Explain.TabIndex = 1;
             // 
             // Form_Main
             // 
@@ -305,7 +310,6 @@ namespace App_Learn_English
             this.Controls.Add(this.panel_Top);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.IconOptions.Image = global::App_Learn_Foreign_Language.Properties.Resources.icon_language;
             this.Name = "Form_Main";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "MainView";
@@ -317,6 +321,7 @@ namespace App_Learn_English
             this.panel_Vocabulary_Main.ResumeLayout(false);
             this.panel_Vocabulary_Right.ResumeLayout(false);
             this.panel_Explain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit_Explain.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -334,7 +339,6 @@ namespace App_Learn_English
         private System.Windows.Forms.Label lbl_OneDay;
         private System.Windows.Forms.Label lbl_TenMinute;
         private System.Windows.Forms.Label lbl_OneMinute;
-        private System.Windows.Forms.Label lbl_Explain;
         private System.Windows.Forms.Label lbl_API;
         private System.Windows.Forms.Label lbl_Word;
         private System.Windows.Forms.Label lbl_Minimize;
@@ -342,6 +346,7 @@ namespace App_Learn_English
         private System.Windows.Forms.Label lbl_ThirtyMinute;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbl_loudspeaker;
+        private DevExpress.XtraEditors.MemoEdit memoEdit_Explain;
     }
 }
 

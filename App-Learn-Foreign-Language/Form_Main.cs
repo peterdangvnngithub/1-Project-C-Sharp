@@ -6,19 +6,17 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Speech.Synthesis;
 using System.Collections.Generic;
-using System.Diagnostics;
-using DevExpress.DataAccess.Excel;
 using App_Learn_Foreign_Language;
 
 namespace App_Learn_English
 {
     public partial class Form_Main : DevExpress.XtraEditors.XtraForm
     {
-        List<Vocabulary> listVocabulary = new List<Vocabulary>();
+        readonly List<Vocabulary> listVocabulary = new List<Vocabulary>();
 
         Vocabulary _currentVocabulary = new Vocabulary();
 
-        SpeechSynthesizer synthesizer = new SpeechSynthesizer();
+        readonly SpeechSynthesizer synthesizer = new SpeechSynthesizer();
 
         public Form_Main(List<Vocabulary> _listVocabulary)
         {
@@ -63,16 +61,14 @@ namespace App_Learn_English
                 sBuilder.Append(_currentVocabulary.Example);
             }
 
-
-            lbl_Explain.TextAlign = ContentAlignment.TopLeft;
-            lbl_Explain.Text = Convert.ToString(sBuilder);
+            memoEdit_Explain.EditValue = Convert.ToString(sBuilder);
         }
 
-        private void Set_Form_BackGround_Transparent()
-        {
-            this.BackColor = Color.Red;
-            this.TransparencyKey = Color.Red;
-        }
+        //private void Set_Form_BackGround_Transparent()
+        //{
+        //    this.BackColor = Color.Red;
+        //    this.TransparencyKey = Color.Red;
+        //}
 
         private void Set_Form_Bottom_Right_Screen()
         {
@@ -94,7 +90,7 @@ namespace App_Learn_English
         #region Moveable
         bool mouseDown = false;
         Point StartPoint = new Point(0, 0);
-        private void panel_Top_MouseMove(object sender, MouseEventArgs e)
+        private void Panel_Top_MouseMove(object sender, MouseEventArgs e)
         {
             if(mouseDown)
             {
@@ -103,26 +99,28 @@ namespace App_Learn_English
             }    
         }
 
-        private void panel_Top_MouseUp(object sender, MouseEventArgs e)
+        private void Panel_Top_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
             StartPoint = new Point(e.X, e.Y);
         }
 
-        private void panel_Top_MouseDown(object sender, MouseEventArgs e)
+        private void Panel_Top_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
         }
         #endregion
 
         #region ButtonEvent
-        private void lbl_Close_Click(object sender, EventArgs e)
+        private void Lbl_Close_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Bạn có muốn backup dữ liệu cho lần học sau.\nBấm OK để mở màn hình sao lưu.\nBấm No để thoát khỏi chương trình.", "Thông Báo", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+            DialogResult dialogResult = MessageBox.Show("Bạn có muốn backup dữ liệu cho lần học sau.\nBấm Ok để mở màn hình sao lưu.\nBấm No để thoát khỏi chương trình.", "Thông Báo", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
             if (dialogResult == DialogResult.Yes)
             {
-                Form_OutputData form_OutputData = new Form_OutputData(listVocabulary);
-                form_OutputData.StartPosition = FormStartPosition.CenterParent;
+                Form_OutputData form_OutputData = new Form_OutputData(listVocabulary)
+                {
+                    StartPosition = FormStartPosition.CenterParent
+                };
                 form_OutputData.ShowDialog();
             }
             else if (dialogResult == DialogResult.No)
@@ -131,17 +129,17 @@ namespace App_Learn_English
             }
         }
 
-        private void lbl_DocBottom_Click(object sender, EventArgs e)
+        private void Lbl_DocBottom_Click(object sender, EventArgs e)
         {
             Set_Form_Bottom_Right_Screen();
         }
 
-        private void lbl_Minimize_Click(object sender, EventArgs e)
+        private void Lbl_Minimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void lbl_OneMinute_Click(object sender, EventArgs e)
+        private void Lbl_OneMinute_Click(object sender, EventArgs e)
         {
             foreach(Vocabulary data in listVocabulary)
             {
@@ -154,7 +152,7 @@ namespace App_Learn_English
             Set_Info_Vocabulary();
         }
 
-        private void lbl_TenMinute_Click(object sender, EventArgs e)
+        private void Lbl_TenMinute_Click(object sender, EventArgs e)
         {
             foreach (Vocabulary data in listVocabulary)
             {
@@ -167,7 +165,7 @@ namespace App_Learn_English
             Set_Info_Vocabulary();
         }
 
-        private void lbl_ThirtyMinute_Click(object sender, EventArgs e)
+        private void Lbl_ThirtyMinute_Click(object sender, EventArgs e)
         {
             foreach (Vocabulary data in listVocabulary)
             {
@@ -180,7 +178,7 @@ namespace App_Learn_English
             Set_Info_Vocabulary();
         }
 
-        private void lbl_OneDay_Click(object sender, EventArgs e)
+        private void Lbl_OneDay_Click(object sender, EventArgs e)
         {
             foreach (Vocabulary data in listVocabulary)
             {
@@ -193,7 +191,7 @@ namespace App_Learn_English
             Set_Info_Vocabulary();
         }
 
-        private void lbl_FiveĐays_Click(object sender, EventArgs e)
+        private void Lbl_FiveĐays_Click(object sender, EventArgs e)
         {
             foreach (Vocabulary data in listVocabulary)
             {
@@ -206,7 +204,7 @@ namespace App_Learn_English
             Set_Info_Vocabulary();
         }
 
-        private void lbl_loudspeaker_Click(object sender, EventArgs e)
+        private void Lbl_loudspeaker_Click(object sender, EventArgs e)
         {
             synthesizer.Speak(lbl_Word.Text);
         }

@@ -100,9 +100,9 @@ namespace App_Learn_English
             this.panel_Top.Name = "panel_Top";
             this.panel_Top.Size = new System.Drawing.Size(241, 25);
             this.panel_Top.TabIndex = 4;
-            this.panel_Top.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_Top_MouseDown);
-            this.panel_Top.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_Top_MouseMove);
-            this.panel_Top.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel_Top_MouseUp);
+            this.panel_Top.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_Top_MouseDown);
+            this.panel_Top.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel_Top_MouseMove);
+            this.panel_Top.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Panel_Top_MouseUp);
             // 
             // lbl_DocBottom
             // 
@@ -115,7 +115,7 @@ namespace App_Learn_English
             this.lbl_DocBottom.TabIndex = 1;
             this.lbl_DocBottom.Text = "↓";
             this.lbl_DocBottom.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lbl_DocBottom.Click += new System.EventHandler(this.lbl_DocBottom_Click);
+            this.lbl_DocBottom.Click += new System.EventHandler(this.Lbl_DocBottom_Click);
             // 
             // lbl_Close
             // 
@@ -128,9 +128,9 @@ namespace App_Learn_English
             this.lbl_Close.TabIndex = 0;
             this.lbl_Close.Text = "X";
             this.lbl_Close.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_Close.Click += new System.EventHandler(this.lbl_Close_Click);
-            this.lbl_Close.MouseLeave += new System.EventHandler(this.lbl_Close_MouseLeave);
-            this.lbl_Close.MouseHover += new System.EventHandler(this.lbl_Close_MouseHover);
+            this.lbl_Close.Click += new System.EventHandler(this.Lbl_Close_Click);
+            this.lbl_Close.MouseLeave += new System.EventHandler(this.Lbl_Close_MouseLeave);
+            this.lbl_Close.MouseHover += new System.EventHandler(this.Lbl_Close_MouseHover);
             // 
             // panel_Explain
             // 
@@ -152,7 +152,7 @@ namespace App_Learn_English
             this.lbl_Import_Data_Input.TabIndex = 0;
             this.lbl_Import_Data_Input.Text = "Import File Data";
             this.lbl_Import_Data_Input.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_Import_Data_Input.Click += new System.EventHandler(this.lbl_Import_Data_Input_Click);
+            this.lbl_Import_Data_Input.Click += new System.EventHandler(this.Lbl_Import_Data_Input_Click);
             // 
             // Form_Import_DB
             // 

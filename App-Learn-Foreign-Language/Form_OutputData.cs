@@ -1,28 +1,28 @@
-﻿using App_Learn_English;
-using DevExpress.Utils;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Drawing;
+using System.Diagnostics;
+using System.Windows.Forms;
+using System.Collections.Generic;
+using DevExpress.Utils;
+using DevExpress.XtraPrinting;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraEditors.Repository;
-using System.Windows.Forms;
-using System.Diagnostics;
-using DevExpress.XtraPrinting;
+using App_Learn_English;
 
 namespace App_Learn_Foreign_Language
 {
     public partial class Form_OutputData : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        List<Vocabulary> listVocabulary = new List<Vocabulary>();
+        readonly List<Vocabulary> listVocabulary = new List<Vocabulary>();
 
-        private GridColumn gridCol_OrderNumber          = new GridColumn();
-        private GridColumn gridCol_Type                 = new GridColumn();
-        private GridColumn gridCol_Word                 = new GridColumn();
-        private GridColumn gridCol_API                  = new GridColumn();
-        private GridColumn gridCol_Explain_Vietnamese   = new GridColumn();
-        private GridColumn gridCol_Explain_English      = new GridColumn();
-        private GridColumn gridCol_Example              = new GridColumn();
-        private GridColumn gridCol_Date_Study           = new GridColumn();
+        private readonly GridColumn gridCol_OrderNumber          = new GridColumn();
+        private readonly GridColumn gridCol_Type                 = new GridColumn();
+        private readonly GridColumn gridCol_Word                 = new GridColumn();
+        private readonly GridColumn gridCol_API                  = new GridColumn();
+        private readonly GridColumn gridCol_Explain_Vietnamese   = new GridColumn();
+        private readonly GridColumn gridCol_Explain_English      = new GridColumn();
+        private readonly GridColumn gridCol_Example              = new GridColumn();
+        private readonly GridColumn gridCol_Date_Study           = new GridColumn();
 
         public Form_OutputData(List<Vocabulary> _listVocabulary)
         {
@@ -141,21 +141,23 @@ namespace App_Learn_Foreign_Language
             }
         }
 
-        private void barBtn_Output_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void BarBtn_Output_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             SaveFileDialog saveDialog = new SaveFileDialog
             {
                 Title = "Save Vocabulary Data",
-                FileName = $"{DateTime.Now.ToString("dd-MM-yyyy-hhMMss")}_Vocabulary",
+                FileName = $"{DateTime.Now:dd-MM-yyyy-hhMMss}_Vocabulary",
                 Filter = "Files Excel|*.xlsx;*.xls"
             };
             if (saveDialog.ShowDialog() == DialogResult.OK)
             {
                 string path = saveDialog.FileName;
 
-                XlsxExportOptionsEx xlsxExportOptionsEx = new XlsxExportOptionsEx();
-                xlsxExportOptionsEx.AllowSortingAndFiltering = DefaultBoolean.False;
-
+                XlsxExportOptionsEx xlsxExportOptionsEx = new XlsxExportOptionsEx()
+                {
+                    AllowSortingAndFiltering = DefaultBoolean.False
+                };
+                
                 gridControl_ListVocabulary.ExportToXlsx(path, xlsxExportOptionsEx);
 
                 // Open the created XLSX file with the default application.

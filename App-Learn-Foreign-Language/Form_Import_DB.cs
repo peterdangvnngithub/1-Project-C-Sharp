@@ -32,17 +32,17 @@ namespace App_Learn_English
             this.TopMost = true;
         }
 
-        private void lbl_Close_Click(object sender, EventArgs e)
+        private void Lbl_Close_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void lbl_DocBottom_Click(object sender, EventArgs e)
+        private void Lbl_DocBottom_Click(object sender, EventArgs e)
         {
             Set_Form_Bottom_Right_Screen();
         }
 
-        private void lbl_Import_Data_Input_Click(object sender, EventArgs e)
+        private void Lbl_Import_Data_Input_Click(object sender, EventArgs e)
         {
             //Get link file excel
             OpenFileDialog theDialog = new OpenFileDialog
@@ -118,36 +118,35 @@ namespace App_Learn_English
         #region Moveable
         bool mouseDown = false;
         Point StartPoint = new Point(0, 0);
-        private void panel_Top_MouseDown(object sender, MouseEventArgs e)
+        private void Panel_Top_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
             StartPoint = new Point(e.X, e.Y);
         }
 
-        private void panel_Top_MouseUp(object sender, MouseEventArgs e)
+        private void Panel_Top_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
             StartPoint = new Point(e.X, e.Y);
         }
 
-        private void panel_Top_MouseMove(object sender, MouseEventArgs e)
+        private void Panel_Top_MouseMove(object sender, MouseEventArgs e)
         {
             if(mouseDown)
             {
                 Point currentPoint = PointToScreen(e.Location);
                 this.Location = new Point(currentPoint.X - StartPoint.X, currentPoint.Y - StartPoint.Y);
-            }    
+            }
         }
-        #endregion
-
-        private void lbl_Close_MouseHover(object sender, EventArgs e)
+        private void Lbl_Close_MouseHover(object sender, EventArgs e)
         {
             lbl_Close.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
         }
 
-        private void lbl_Close_MouseLeave(object sender, EventArgs e)
+        private void Lbl_Close_MouseLeave(object sender, EventArgs e)
         {
             lbl_Close.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
         }
+        #endregion
     }
 }
