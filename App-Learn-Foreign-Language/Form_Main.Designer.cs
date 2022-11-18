@@ -44,11 +44,11 @@ namespace App_Learn_English
             this.lbl_Word = new System.Windows.Forms.Label();
             this.lbl_API = new System.Windows.Forms.Label();
             this.panel_Vocabulary_Right = new System.Windows.Forms.Panel();
+            this.lbl_loudspeaker = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel_Vocabulary_Left = new System.Windows.Forms.Panel();
             this.panel_Explain = new System.Windows.Forms.Panel();
             this.lbl_Explain = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lbl_loudspeaker = new System.Windows.Forms.Label();
             this.panel_Top.SuspendLayout();
             this.panelBottom.SuspendLayout();
             this.panel_Vocabulary.SuspendLayout();
@@ -231,7 +231,7 @@ namespace App_Learn_English
             this.lbl_API.Size = new System.Drawing.Size(210, 25);
             this.lbl_API.TabIndex = 1;
             this.lbl_API.Text = "API";
-            this.lbl_API.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_API.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panel_Vocabulary_Right
             // 
@@ -242,6 +242,27 @@ namespace App_Learn_English
             this.panel_Vocabulary_Right.Name = "panel_Vocabulary_Right";
             this.panel_Vocabulary_Right.Size = new System.Drawing.Size(30, 75);
             this.panel_Vocabulary_Right.TabIndex = 1;
+            // 
+            // lbl_loudspeaker
+            // 
+            this.lbl_loudspeaker.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl_loudspeaker.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lbl_loudspeaker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(75)))));
+            this.lbl_loudspeaker.Location = new System.Drawing.Point(0, 25);
+            this.lbl_loudspeaker.Name = "lbl_loudspeaker";
+            this.lbl_loudspeaker.Size = new System.Drawing.Size(30, 25);
+            this.lbl_loudspeaker.TabIndex = 1;
+            this.lbl_loudspeaker.Text = "🕪";
+            this.lbl_loudspeaker.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbl_loudspeaker.Click += new System.EventHandler(this.lbl_loudspeaker_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(30, 25);
+            this.panel1.TabIndex = 0;
             // 
             // panel_Vocabulary_Left
             // 
@@ -272,27 +293,6 @@ namespace App_Learn_English
             this.lbl_Explain.Text = "Explain";
             this.lbl_Explain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(30, 25);
-            this.panel1.TabIndex = 0;
-            // 
-            // lbl_loudspeaker
-            // 
-            this.lbl_loudspeaker.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl_loudspeaker.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lbl_loudspeaker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(75)))));
-            this.lbl_loudspeaker.Location = new System.Drawing.Point(0, 25);
-            this.lbl_loudspeaker.Name = "lbl_loudspeaker";
-            this.lbl_loudspeaker.Size = new System.Drawing.Size(30, 25);
-            this.lbl_loudspeaker.TabIndex = 1;
-            this.lbl_loudspeaker.Text = "🕪";
-            this.lbl_loudspeaker.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lbl_loudspeaker.Click += new System.EventHandler(this.lbl_loudspeaker_Click);
-            // 
             // Form_Main
             // 
             this.Appearance.Options.UseFont = true;
@@ -309,6 +309,7 @@ namespace App_Learn_English
             this.Name = "Form_Main";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "MainView";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Main_FormClosing);
             this.Load += new System.EventHandler(this.MainView_Load);
             this.panel_Top.ResumeLayout(false);
             this.panelBottom.ResumeLayout(false);

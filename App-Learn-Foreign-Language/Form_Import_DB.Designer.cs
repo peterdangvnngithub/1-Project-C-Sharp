@@ -129,6 +129,8 @@ namespace App_Learn_English
             this.lbl_Close.Text = "X";
             this.lbl_Close.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_Close.Click += new System.EventHandler(this.lbl_Close_Click);
+            this.lbl_Close.MouseLeave += new System.EventHandler(this.lbl_Close_MouseLeave);
+            this.lbl_Close.MouseHover += new System.EventHandler(this.lbl_Close_MouseHover);
             // 
             // panel_Explain
             // 

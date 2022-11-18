@@ -61,7 +61,7 @@ namespace App_Learn_English
                 // Select a required worksheet.
                 ExcelWorksheetSettings excelWorksheetSettings = new ExcelWorksheetSettings
                 {
-                    WorksheetName = "Sheet1"
+                    WorksheetIndex = 0
                 };
 
                 // Specify import settings.
@@ -92,6 +92,8 @@ namespace App_Learn_English
                     (
                         from
                             row in tableDataVocabulary.AsEnumerable()
+                        where
+                           !String.IsNullOrEmpty(Convert.ToString(row.Field<string>("Word")))
                         select new Vocabulary
                         {
                             STT                 = Convert.ToInt32(row["STT"]),
@@ -137,5 +139,15 @@ namespace App_Learn_English
             }    
         }
         #endregion
+
+        private void lbl_Close_MouseHover(object sender, EventArgs e)
+        {
+            lbl_Close.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+        }
+
+        private void lbl_Close_MouseLeave(object sender, EventArgs e)
+        {
+            lbl_Close.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+        }
     }
 }

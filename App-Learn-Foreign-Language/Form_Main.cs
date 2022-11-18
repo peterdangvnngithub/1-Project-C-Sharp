@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using System.Text;
 using System.Data;
 using System.Linq;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Speech.Synthesis;
-using System.Text;
+using System.Collections.Generic;
+using System.Diagnostics;
+using DevExpress.DataAccess.Excel;
+using App_Learn_Foreign_Language;
 
 namespace App_Learn_English
 {
@@ -116,7 +118,17 @@ namespace App_Learn_English
         #region ButtonEvent
         private void lbl_Close_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult dialogResult = MessageBox.Show("Bạn có muốn backup dữ liệu cho lần học sau.\nBấm OK để mở màn hình sao lưu.\nBấm No để thoát khỏi chương trình.", "Thông Báo", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Form_OutputData form_OutputData = new Form_OutputData(listVocabulary);
+                form_OutputData.StartPosition = FormStartPosition.CenterParent;
+                form_OutputData.ShowDialog();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                Application.Exit();
+            }
         }
 
         private void lbl_DocBottom_Click(object sender, EventArgs e)
@@ -199,5 +211,21 @@ namespace App_Learn_English
             synthesizer.Speak(lbl_Word.Text);
         }
         #endregion
+
+        private void Form_Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn có muốn backup dữ liệu trước khi ", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (dialogResult == DialogResult.OK)
+                {
+                    Application.Exit();
+                }
+                else
+                {
+                    e.Cancel = true;    // Stopping Form Close perocess.
+                }
+            }
+        }
     }
 }
