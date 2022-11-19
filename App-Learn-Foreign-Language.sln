@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App-Learn-Foreign-Language", "App-Learn-Foreign-Language\App-Learn-Foreign-Language.csproj", "{BF5E4CEB-2C3E-48A6-9A41-4534393163E8}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "App-Learn-Foreign-Language-Setup", "App-Learn-Foreign-Language-Setup\App-Learn-Foreign-Language-Setup.vdproj", "{A37DD93C-1373-4269-9D0A-828B5402F798}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "App-Learn-Foreign-Language-Setup", "App-Learn-Foreign-Language-Setup\App-Learn-Foreign-Language-Setup.vdproj", "{497126BF-3229-477B-B76D-196A72ED5002}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,16 +41,16 @@ Global
 		{BF5E4CEB-2C3E-48A6-9A41-4534393163E8}.Release|x64.Build.0 = Release|Any CPU
 		{BF5E4CEB-2C3E-48A6-9A41-4534393163E8}.Release|x86.ActiveCfg = Release|Any CPU
 		{BF5E4CEB-2C3E-48A6-9A41-4534393163E8}.Release|x86.Build.0 = Release|Any CPU
-		{A37DD93C-1373-4269-9D0A-828B5402F798}.Debug|Any CPU.ActiveCfg = Debug
-		{A37DD93C-1373-4269-9D0A-828B5402F798}.Debug|ARM.ActiveCfg = Debug
-		{A37DD93C-1373-4269-9D0A-828B5402F798}.Debug|ARM64.ActiveCfg = Debug
-		{A37DD93C-1373-4269-9D0A-828B5402F798}.Debug|x64.ActiveCfg = Debug
-		{A37DD93C-1373-4269-9D0A-828B5402F798}.Debug|x86.ActiveCfg = Debug
-		{A37DD93C-1373-4269-9D0A-828B5402F798}.Release|Any CPU.ActiveCfg = Release
-		{A37DD93C-1373-4269-9D0A-828B5402F798}.Release|ARM.ActiveCfg = Release
-		{A37DD93C-1373-4269-9D0A-828B5402F798}.Release|ARM64.ActiveCfg = Release
-		{A37DD93C-1373-4269-9D0A-828B5402F798}.Release|x64.ActiveCfg = Release
-		{A37DD93C-1373-4269-9D0A-828B5402F798}.Release|x86.ActiveCfg = Release
+		{497126BF-3229-477B-B76D-196A72ED5002}.Debug|Any CPU.ActiveCfg = Debug
+		{497126BF-3229-477B-B76D-196A72ED5002}.Debug|ARM.ActiveCfg = Debug
+		{497126BF-3229-477B-B76D-196A72ED5002}.Debug|ARM64.ActiveCfg = Debug
+		{497126BF-3229-477B-B76D-196A72ED5002}.Debug|x64.ActiveCfg = Debug
+		{497126BF-3229-477B-B76D-196A72ED5002}.Debug|x86.ActiveCfg = Debug
+		{497126BF-3229-477B-B76D-196A72ED5002}.Release|Any CPU.ActiveCfg = Release
+		{497126BF-3229-477B-B76D-196A72ED5002}.Release|ARM.ActiveCfg = Release
+		{497126BF-3229-477B-B76D-196A72ED5002}.Release|ARM64.ActiveCfg = Release
+		{497126BF-3229-477B-B76D-196A72ED5002}.Release|x64.ActiveCfg = Release
+		{497126BF-3229-477B-B76D-196A72ED5002}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
