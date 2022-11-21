@@ -18,6 +18,7 @@ namespace App_Learn_English
 
         readonly SpeechSynthesizer synthesizer = new SpeechSynthesizer();
 
+        #region Main Setting
         public Form_Main(List<Vocabulary> _listVocabulary)
         {
             InitializeComponent();
@@ -34,29 +35,52 @@ namespace App_Learn_English
             Setting_Speaker();
         }
 
+        private void Form_Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn có muốn backup dữ liệu trước khi ", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (dialogResult == DialogResult.OK)
+                {
+                    Application.Exit();
+                }
+                else
+                {
+                    e.Cancel = true;    // Stopping Form Close perocess.
+                }
+            }
+        }
+
+        private void Setting_Speaker()
+        {
+            synthesizer.Volume = 100;  // 0...100
+            synthesizer.Rate = -2;     // -10...10
+        }
+
+
         private void Set_Info_Vocabulary()
         {
-            _currentVocabulary = listVocabulary.OrderBy(x=>x.Date_Study).FirstOrDefault();
+            _currentVocabulary = listVocabulary.OrderBy(x => x.Date_Study).FirstOrDefault();
 
             StringBuilder sBuilder = new StringBuilder();
 
             lbl_Word.Text = _currentVocabulary.Word;
             lbl_API.Text = _currentVocabulary.API;
 
-            if(!String.IsNullOrEmpty(_currentVocabulary.Explain_English))
+            if (!String.IsNullOrEmpty(_currentVocabulary.Explain_English))
             {
                 sBuilder.Append(_currentVocabulary.Explain_English);
+                sBuilder.Append(Environment.NewLine);
             }
 
             if (!String.IsNullOrEmpty(_currentVocabulary.Explain_Vietnamese))
             {
-                sBuilder.Append("\n");
                 sBuilder.Append(_currentVocabulary.Explain_Vietnamese);
+                sBuilder.Append(Environment.NewLine);
             }
 
             if (!String.IsNullOrEmpty(_currentVocabulary.Example))
             {
-                sBuilder.Append("\n");
                 sBuilder.Append("Ex: ");
                 sBuilder.Append(_currentVocabulary.Example);
             }
@@ -80,12 +104,7 @@ namespace App_Learn_English
             //Set form alway top
             this.TopMost = true;
         }
-
-        private void Setting_Speaker()
-        {
-            synthesizer.Volume = 100;  // 0...100
-            synthesizer.Rate = -2;     // -10...10
-        }
+        #endregion
 
         #region Moveable
         bool mouseDown = false;
@@ -112,6 +131,16 @@ namespace App_Learn_English
         #endregion
 
         #region ButtonEvent
+        private void Lbl_Minimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void Lbl_DocBottom_Click(object sender, EventArgs e)
+        {
+            Set_Form_Bottom_Right_Screen();
+        }
+        
         private void Lbl_Close_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Bạn có muốn backup dữ liệu cho lần học sau.\nBấm Ok để mở màn hình sao lưu.\nBấm No để thoát khỏi chương trình.", "Thông Báo", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
@@ -129,16 +158,6 @@ namespace App_Learn_English
             }
         }
 
-        private void Lbl_DocBottom_Click(object sender, EventArgs e)
-        {
-            Set_Form_Bottom_Right_Screen();
-        }
-
-        private void Lbl_Minimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
         private void Lbl_OneMinute_Click(object sender, EventArgs e)
         {
             foreach(Vocabulary data in listVocabulary)
@@ -148,6 +167,8 @@ namespace App_Learn_English
                     data.Date_Study = data.Date_Study.AddMinutes(1);
                 }    
             }
+
+            Handle_Hide_And_Show_Explain(false);
 
             Set_Info_Vocabulary();
         }
@@ -162,6 +183,8 @@ namespace App_Learn_English
                 }
             }
 
+            Handle_Hide_And_Show_Explain(false);
+
             Set_Info_Vocabulary();
         }
 
@@ -174,6 +197,8 @@ namespace App_Learn_English
                     data.Date_Study = data.Date_Study.AddMinutes(30);
                 }
             }
+
+            Handle_Hide_And_Show_Explain(false);
 
             Set_Info_Vocabulary();
         }
@@ -188,6 +213,8 @@ namespace App_Learn_English
                 }
             }
 
+            Handle_Hide_And_Show_Explain(false);
+
             Set_Info_Vocabulary();
         }
 
@@ -201,6 +228,8 @@ namespace App_Learn_English
                 }
             }
 
+            Handle_Hide_And_Show_Explain(false);
+
             Set_Info_Vocabulary();
         }
 
@@ -208,22 +237,17 @@ namespace App_Learn_English
         {
             synthesizer.Speak(lbl_Word.Text);
         }
-        #endregion
 
-        private void Form_Main_FormClosing(object sender, FormClosingEventArgs e)
+        private void BtnExplain_Click(object sender, EventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
-            {
-                DialogResult dialogResult = MessageBox.Show("Bạn có muốn backup dữ liệu trước khi ", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                if (dialogResult == DialogResult.OK)
-                {
-                    Application.Exit();
-                }
-                else
-                {
-                    e.Cancel = true;    // Stopping Form Close perocess.
-                }
-            }
+            Handle_Hide_And_Show_Explain(true);
         }
+
+        private void Handle_Hide_And_Show_Explain(bool IsEnableExplain)
+        {
+            btnExplain.Visible = !IsEnableExplain;
+            memoEdit_Explain.Visible = IsEnableExplain;
+        }
+        #endregion
     }
 }

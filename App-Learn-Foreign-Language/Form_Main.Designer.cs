@@ -49,6 +49,7 @@ namespace App_Learn_English
             this.panel_Vocabulary_Left = new System.Windows.Forms.Panel();
             this.panel_Explain = new System.Windows.Forms.Panel();
             this.memoEdit_Explain = new DevExpress.XtraEditors.MemoEdit();
+            this.btnExplain = new DevExpress.XtraEditors.SimpleButton();
             this.panel_Top.SuspendLayout();
             this.panelBottom.SuspendLayout();
             this.panel_Vocabulary.SuspendLayout();
@@ -275,6 +276,7 @@ namespace App_Learn_English
             // 
             // panel_Explain
             // 
+            this.panel_Explain.Controls.Add(this.btnExplain);
             this.panel_Explain.Controls.Add(this.memoEdit_Explain);
             this.panel_Explain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Explain.Location = new System.Drawing.Point(5, 105);
@@ -297,6 +299,20 @@ namespace App_Learn_English
             this.memoEdit_Explain.Properties.ReadOnly = true;
             this.memoEdit_Explain.Size = new System.Drawing.Size(270, 115);
             this.memoEdit_Explain.TabIndex = 1;
+            this.memoEdit_Explain.Visible = false;
+            // 
+            // btnExplain
+            // 
+            this.btnExplain.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExplain.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
+            this.btnExplain.Appearance.Options.UseFont = true;
+            this.btnExplain.Appearance.Options.UseForeColor = true;
+            this.btnExplain.Location = new System.Drawing.Point(87, 41);
+            this.btnExplain.Name = "btnExplain";
+            this.btnExplain.Size = new System.Drawing.Size(75, 23);
+            this.btnExplain.TabIndex = 2;
+            this.btnExplain.Text = "Explain";
+            this.btnExplain.Click += new System.EventHandler(this.BtnExplain_Click);
             // 
             // Form_Main
             // 
@@ -347,6 +363,7 @@ namespace App_Learn_English
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbl_loudspeaker;
         private DevExpress.XtraEditors.MemoEdit memoEdit_Explain;
+        private DevExpress.XtraEditors.SimpleButton btnExplain;
     }
 }
 
