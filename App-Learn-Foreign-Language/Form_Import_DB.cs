@@ -103,7 +103,7 @@ namespace App_Learn_English
                             Explain_Vietnamese  = Convert.ToString(row["Explain_Vietnamese"]),
                             Explain_English     = Convert.ToString(row["Explain_English"]),
                             Example             = Convert.ToString(row["Example"]),
-                            Date_Study          = row["Date_Study"] != DBNull.Value ? Convert.ToDateTime(row["Date_Study"]) : DateTime.Now
+                            Date_Study          = row["Date_Study"] != DBNull.Value ? Convert.ToDateTime(row["Date_Study"]) : DateTime.MinValue
                         }).ToList();
 
                 MessageBox.Show("Import dữ liệu chương trình thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

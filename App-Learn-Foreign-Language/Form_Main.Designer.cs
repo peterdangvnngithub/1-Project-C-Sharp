@@ -41,6 +41,7 @@ namespace App_Learn_English
             this.lbl_FiveĐays = new System.Windows.Forms.Label();
             this.panel_Vocabulary = new System.Windows.Forms.Panel();
             this.panel_Vocabulary_Main = new System.Windows.Forms.Panel();
+            this.btnAPI = new DevExpress.XtraEditors.SimpleButton();
             this.lbl_Word = new System.Windows.Forms.Label();
             this.lbl_API = new System.Windows.Forms.Label();
             this.panel_Vocabulary_Right = new System.Windows.Forms.Panel();
@@ -48,8 +49,8 @@ namespace App_Learn_English
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel_Vocabulary_Left = new System.Windows.Forms.Panel();
             this.panel_Explain = new System.Windows.Forms.Panel();
-            this.memoEdit_Explain = new DevExpress.XtraEditors.MemoEdit();
             this.btnExplain = new DevExpress.XtraEditors.SimpleButton();
+            this.memoEdit_Explain = new DevExpress.XtraEditors.MemoEdit();
             this.panel_Top.SuspendLayout();
             this.panelBottom.SuspendLayout();
             this.panel_Vocabulary.SuspendLayout();
@@ -203,6 +204,7 @@ namespace App_Learn_English
             // 
             // panel_Vocabulary_Main
             // 
+            this.panel_Vocabulary_Main.Controls.Add(this.btnAPI);
             this.panel_Vocabulary_Main.Controls.Add(this.lbl_Word);
             this.panel_Vocabulary_Main.Controls.Add(this.lbl_API);
             this.panel_Vocabulary_Main.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -210,6 +212,19 @@ namespace App_Learn_English
             this.panel_Vocabulary_Main.Name = "panel_Vocabulary_Main";
             this.panel_Vocabulary_Main.Size = new System.Drawing.Size(210, 75);
             this.panel_Vocabulary_Main.TabIndex = 2;
+            // 
+            // btnAPI
+            // 
+            this.btnAPI.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAPI.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
+            this.btnAPI.Appearance.Options.UseFont = true;
+            this.btnAPI.Appearance.Options.UseForeColor = true;
+            this.btnAPI.Location = new System.Drawing.Point(57, 51);
+            this.btnAPI.Name = "btnAPI";
+            this.btnAPI.Size = new System.Drawing.Size(75, 23);
+            this.btnAPI.TabIndex = 3;
+            this.btnAPI.Text = "API";
+            this.btnAPI.Click += new System.EventHandler(this.btnAPI_Click);
             // 
             // lbl_Word
             // 
@@ -234,6 +249,7 @@ namespace App_Learn_English
             this.lbl_API.TabIndex = 1;
             this.lbl_API.Text = "API";
             this.lbl_API.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbl_API.Visible = false;
             // 
             // panel_Vocabulary_Right
             // 
@@ -284,6 +300,19 @@ namespace App_Learn_English
             this.panel_Explain.Size = new System.Drawing.Size(270, 115);
             this.panel_Explain.TabIndex = 11;
             // 
+            // btnExplain
+            // 
+            this.btnExplain.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExplain.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
+            this.btnExplain.Appearance.Options.UseFont = true;
+            this.btnExplain.Appearance.Options.UseForeColor = true;
+            this.btnExplain.Location = new System.Drawing.Point(87, 41);
+            this.btnExplain.Name = "btnExplain";
+            this.btnExplain.Size = new System.Drawing.Size(75, 23);
+            this.btnExplain.TabIndex = 2;
+            this.btnExplain.Text = "Explain";
+            this.btnExplain.Click += new System.EventHandler(this.BtnExplain_Click);
+            // 
             // memoEdit_Explain
             // 
             this.memoEdit_Explain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -301,19 +330,6 @@ namespace App_Learn_English
             this.memoEdit_Explain.TabIndex = 1;
             this.memoEdit_Explain.Visible = false;
             // 
-            // btnExplain
-            // 
-            this.btnExplain.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExplain.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
-            this.btnExplain.Appearance.Options.UseFont = true;
-            this.btnExplain.Appearance.Options.UseForeColor = true;
-            this.btnExplain.Location = new System.Drawing.Point(87, 41);
-            this.btnExplain.Name = "btnExplain";
-            this.btnExplain.Size = new System.Drawing.Size(75, 23);
-            this.btnExplain.TabIndex = 2;
-            this.btnExplain.Text = "Explain";
-            this.btnExplain.Click += new System.EventHandler(this.BtnExplain_Click);
-            // 
             // Form_Main
             // 
             this.Appearance.Options.UseFont = true;
@@ -326,6 +342,7 @@ namespace App_Learn_English
             this.Controls.Add(this.panel_Top);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.IconOptions.Image = global::App_Learn_Foreign_Language.Properties.Resources.icon_language;
             this.Name = "Form_Main";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "MainView";
@@ -364,6 +381,7 @@ namespace App_Learn_English
         private System.Windows.Forms.Label lbl_loudspeaker;
         private DevExpress.XtraEditors.MemoEdit memoEdit_Explain;
         private DevExpress.XtraEditors.SimpleButton btnExplain;
+        private DevExpress.XtraEditors.SimpleButton btnAPI;
     }
 }
 

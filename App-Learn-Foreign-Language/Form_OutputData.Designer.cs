@@ -107,10 +107,12 @@ namespace App_Learn_Foreign_Language
             this.Controls.Add(this.gridControl_ListVocabulary);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
+            this.IconOptions.Image = global::App_Learn_Foreign_Language.Properties.Resources.icon_language;
             this.Name = "Form_OutputData";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Form Output Data";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_OutputData_FormClosed);
             this.Load += new System.EventHandler(this.Form_OutputData_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_ListVocabulary)).EndInit();

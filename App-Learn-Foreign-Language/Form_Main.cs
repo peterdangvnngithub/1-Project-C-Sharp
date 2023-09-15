@@ -69,19 +69,24 @@ namespace App_Learn_English
 
             if (!String.IsNullOrEmpty(_currentVocabulary.Explain_English))
             {
+                sBuilder.Append("Explain English:");
+                sBuilder.Append(Environment.NewLine);
                 sBuilder.Append(_currentVocabulary.Explain_English);
                 sBuilder.Append(Environment.NewLine);
             }
 
             if (!String.IsNullOrEmpty(_currentVocabulary.Explain_Vietnamese))
             {
+                sBuilder.Append("Explain Vietnamese:");
+                sBuilder.Append(Environment.NewLine);
                 sBuilder.Append(_currentVocabulary.Explain_Vietnamese);
                 sBuilder.Append(Environment.NewLine);
             }
 
             if (!String.IsNullOrEmpty(_currentVocabulary.Example))
             {
-                sBuilder.Append("Ex: ");
+                sBuilder.Append("Example:");
+                sBuilder.Append(Environment.NewLine);
                 sBuilder.Append(_currentVocabulary.Example);
             }
 
@@ -168,6 +173,8 @@ namespace App_Learn_English
                 }    
             }
 
+            Handle_Hide_And_Show_API(false);
+
             Handle_Hide_And_Show_Explain(false);
 
             Set_Info_Vocabulary();
@@ -182,6 +189,8 @@ namespace App_Learn_English
                     data.Date_Study = data.Date_Study.AddMinutes(10);
                 }
             }
+
+            Handle_Hide_And_Show_API(false);
 
             Handle_Hide_And_Show_Explain(false);
 
@@ -198,6 +207,8 @@ namespace App_Learn_English
                 }
             }
 
+            Handle_Hide_And_Show_API(false);
+
             Handle_Hide_And_Show_Explain(false);
 
             Set_Info_Vocabulary();
@@ -212,6 +223,8 @@ namespace App_Learn_English
                     data.Date_Study = data.Date_Study.AddDays(1);
                 }
             }
+
+            Handle_Hide_And_Show_API(false);
 
             Handle_Hide_And_Show_Explain(false);
 
@@ -228,6 +241,8 @@ namespace App_Learn_English
                 }
             }
 
+            Handle_Hide_And_Show_API(false);
+
             Handle_Hide_And_Show_Explain(false);
 
             Set_Info_Vocabulary();
@@ -241,6 +256,18 @@ namespace App_Learn_English
         private void BtnExplain_Click(object sender, EventArgs e)
         {
             Handle_Hide_And_Show_Explain(true);
+        }
+        private void btnAPI_Click(object sender, EventArgs e)
+        {
+            Handle_Hide_And_Show_API(true);
+
+            synthesizer.Speak(lbl_Word.Text);
+        }
+
+        private void Handle_Hide_And_Show_API(bool IsEnableAPI)
+        {
+            btnAPI.Visible = !IsEnableAPI;
+            lbl_API.Visible = IsEnableAPI;
         }
 
         private void Handle_Hide_And_Show_Explain(bool IsEnableExplain)
