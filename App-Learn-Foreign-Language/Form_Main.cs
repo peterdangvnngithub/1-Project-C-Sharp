@@ -3,11 +3,11 @@ using System.Text;
 using System.Data;
 using System.Linq;
 using System.Drawing;
+using System.Diagnostics;
 using System.Windows.Forms;
 using System.Speech.Synthesis;
 using System.Collections.Generic;
 using App_Learn_Foreign_Language;
-using System.Diagnostics;
 
 namespace App_Learn_English
 {
@@ -40,7 +40,8 @@ namespace App_Learn_English
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                DialogResult dialogResult = MessageBox.Show("Bạn có muốn backup dữ liệu trước khi ", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                DialogResult dialogResult = 
+                    MessageBox.Show("Bạn có muốn backup dữ liệu trước khi ", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 if (dialogResult == DialogResult.OK)
                 {
                     Application.Exit();
@@ -62,43 +63,40 @@ namespace App_Learn_English
         {
             _currentVocabulary = listVocabulary.OrderBy(x => x.Date_Study).FirstOrDefault();
 
-            StringBuilder sBuilder = new StringBuilder();
+            StringBuilder sBuilder_Explain = new StringBuilder();
+            StringBuilder sBuilder_Example = new StringBuilder();
 
             lbl_Word.Text = _currentVocabulary.Word;
             lbl_API.Text = _currentVocabulary.API;
 
             if (!String.IsNullOrEmpty(_currentVocabulary.Explain_English))
             {
-                sBuilder.Append("Explain English:");
-                sBuilder.Append(Environment.NewLine);
-                sBuilder.Append(_currentVocabulary.Explain_English);
-                sBuilder.Append(Environment.NewLine);
+                sBuilder_Explain.Append(_currentVocabulary.Explain_English);
             }
 
             if (!String.IsNullOrEmpty(_currentVocabulary.Explain_Vietnamese))
             {
-                sBuilder.Append("Explain Vietnamese:");
-                sBuilder.Append(Environment.NewLine);
-                sBuilder.Append(_currentVocabulary.Explain_Vietnamese);
-                sBuilder.Append(Environment.NewLine);
+                sBuilder_Explain.Append(Environment.NewLine);
+                sBuilder_Explain.Append(_currentVocabulary.Explain_Vietnamese);
             }
 
             if (!String.IsNullOrEmpty(_currentVocabulary.Example))
             {
-                sBuilder.Append("Example:");
-                sBuilder.Append(Environment.NewLine);
-                sBuilder.Append(_currentVocabulary.Example);
+                sBuilder_Example.Append(_currentVocabulary.Example);
             }
 
-            memoEdit_Explain.EditValue = Convert.ToString(sBuilder);
+            memoEdit_Explain.EditValue = Convert.ToString(sBuilder_Explain);
+            memoEdit_Example.EditValue = Convert.ToString(sBuilder_Example);
         }
 
         private void Set_Form_Bottom_Right_Screen()
         {
             // Set form in bottom right
             this.StartPosition = FormStartPosition.Manual;
-            this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - this.Width,
-                Screen.PrimaryScreen.WorkingArea.Height - this.Height);
+            this.Location = 
+                new Point(
+                    Screen.PrimaryScreen.WorkingArea.Width - this.Width,
+                    Screen.PrimaryScreen.WorkingArea.Height - this.Height);
 
             //Set form alway top
             this.TopMost = true;
@@ -142,7 +140,12 @@ namespace App_Learn_English
         
         private void Lbl_Close_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Bạn có muốn backup dữ liệu cho lần học sau.\nBấm Ok để mở màn hình sao lưu.\nBấm No để thoát khỏi chương trình.", "Thông Báo", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+            DialogResult dialogResult = 
+                MessageBox.Show(
+                    "Bạn có muốn backup dữ liệu cho lần học sau.\nBấm Ok để mở màn hình sao lưu.\nBấm No để thoát khỏi chương trình.", 
+                    "Thông Báo", 
+                    MessageBoxButtons.YesNoCancel, 
+                    MessageBoxIcon.Information);
             if (dialogResult == DialogResult.Yes)
             {
                 Form_OutputData form_OutputData = new Form_OutputData(listVocabulary)
@@ -225,7 +228,7 @@ namespace App_Learn_English
             Set_Info_Vocabulary();
         }
 
-        private void Lbl_FiveĐays_Click(object sender, EventArgs e)
+        private void Lbl_FiveDays_Click(object sender, EventArgs e)
         {
             foreach (Vocabulary data in listVocabulary)
             {
@@ -267,23 +270,41 @@ namespace App_Learn_English
         private void Handle_Hide_And_Show_Explain(bool IsEnableExplain)
         {
             btnExplain.Visible = !IsEnableExplain;
+            lbl_Explain.Visible = IsEnableExplain;
+            lbl_Example.Visible = IsEnableExplain;
             memoEdit_Explain.Visible = IsEnableExplain;
+            memoEdit_Example.Visible = IsEnableExplain;
         }
-        #endregion
-
+        
         private void memoEdit_Explain_MouseUp(object sender, MouseEventArgs e)
         {
             string selectedText = memoEdit_Explain.SelectedText.Trim();
 
-            // Kiểm tra nếu có vùng văn bản được chọn.
+            // Check if have selected text
             if (!string.IsNullOrEmpty(selectedText))
             {
-                // Xử lý sự kiện khi người dùng bôi đen văn bản.
+                // Handle event when user selected text
                 string oxfordUrl = $"https://www.oxfordlearnersdictionaries.com/definition/english/{selectedText}";
 
-                // Đoạn mã của bạn ở đây.
+                // Open Chrome
                 Process.Start("chrome.exe", oxfordUrl);
             }
         }
+
+        private void memoEdit_Example_MouseUp(object sender, MouseEventArgs e)
+        {
+            string selectedText = memoEdit_Example.SelectedText.Trim();
+
+            // Check if have selected text
+            if (!string.IsNullOrEmpty(selectedText))
+            {
+                // Handle event when user selected text
+                string oxfordUrl = $"https://www.oxfordlearnersdictionaries.com/definition/english/{selectedText}";
+
+                // Open Chrome
+                Process.Start("chrome.exe", oxfordUrl);
+            }
+        }
+        #endregion
     }
 }
