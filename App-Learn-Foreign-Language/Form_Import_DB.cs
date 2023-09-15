@@ -96,7 +96,7 @@ namespace App_Learn_English
                            !String.IsNullOrEmpty(Convert.ToString(row.Field<string>("Word")))
                         select new Vocabulary
                         {
-                            STT                 = Convert.ToInt32(row["STT"]),
+                            STT                 = row["STT"] != DBNull.Value ? Convert.ToInt32(row["STT"]) : 0,
                             Type                = Convert.ToString(row["Type"]),
                             Word                = Convert.ToString(row["Word"]),
                             API                 = Convert.ToString(row["API"]),

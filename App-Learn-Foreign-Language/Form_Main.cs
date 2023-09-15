@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Speech.Synthesis;
 using System.Collections.Generic;
 using App_Learn_Foreign_Language;
+using System.Diagnostics;
 
 namespace App_Learn_English
 {
@@ -57,7 +58,6 @@ namespace App_Learn_English
             synthesizer.Rate = -2;     // -10...10
         }
 
-
         private void Set_Info_Vocabulary()
         {
             _currentVocabulary = listVocabulary.OrderBy(x => x.Date_Study).FirstOrDefault();
@@ -92,12 +92,6 @@ namespace App_Learn_English
 
             memoEdit_Explain.EditValue = Convert.ToString(sBuilder);
         }
-
-        //private void Set_Form_BackGround_Transparent()
-        //{
-        //    this.BackColor = Color.Red;
-        //    this.TransparencyKey = Color.Red;
-        //}
 
         private void Set_Form_Bottom_Right_Screen()
         {
@@ -276,5 +270,20 @@ namespace App_Learn_English
             memoEdit_Explain.Visible = IsEnableExplain;
         }
         #endregion
+
+        private void memoEdit_Explain_MouseUp(object sender, MouseEventArgs e)
+        {
+            string selectedText = memoEdit_Explain.SelectedText.Trim();
+
+            // Kiểm tra nếu có vùng văn bản được chọn.
+            if (!string.IsNullOrEmpty(selectedText))
+            {
+                // Xử lý sự kiện khi người dùng bôi đen văn bản.
+                string oxfordUrl = $"https://www.oxfordlearnersdictionaries.com/definition/english/{selectedText}";
+
+                // Đoạn mã của bạn ở đây.
+                Process.Start("chrome.exe", oxfordUrl);
+            }
+        }
     }
 }
