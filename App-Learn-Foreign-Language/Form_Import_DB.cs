@@ -25,8 +25,10 @@ namespace App_Learn_English
         {
             // Set form in bottom right
             this.StartPosition = FormStartPosition.Manual;
-            this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - this.Width,
-                Screen.PrimaryScreen.WorkingArea.Height - this.Height);
+            this.Location = 
+                new Point(
+                    Screen.PrimaryScreen.WorkingArea.Width - this.Width,
+                    Screen.PrimaryScreen.WorkingArea.Height - this.Height);
 
             //Set form alway top
             this.TopMost = true;
@@ -37,7 +39,7 @@ namespace App_Learn_English
             Application.Exit();
         }
 
-        private void Lbl_DocBottom_Click(object sender, EventArgs e)
+        private void lbl_DocBottom_Click(object sender, EventArgs e)
         {
             Set_Form_Bottom_Right_Screen();
         }
@@ -105,8 +107,6 @@ namespace App_Learn_English
                             Example             = Convert.ToString(row["Example"]),
                             Date_Study          = row["Date_Study"] != DBNull.Value ? Convert.ToDateTime(row["Date_Study"]) : DateTime.MinValue
                         }).ToList();
-
-                MessageBox.Show("Import dữ liệu chương trình thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Hide();
 

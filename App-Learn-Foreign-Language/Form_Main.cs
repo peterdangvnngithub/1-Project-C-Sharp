@@ -63,7 +63,8 @@ namespace App_Learn_English
         {
             _currentVocabulary = listVocabulary.OrderBy(x => x.Date_Study).FirstOrDefault();
 
-            StringBuilder sBuilder_Explain = new StringBuilder();
+            StringBuilder sBuilder_ExplainEN = new StringBuilder();
+            StringBuilder sBuilder_ExplainVN = new StringBuilder();
             StringBuilder sBuilder_Example = new StringBuilder();
 
             lbl_Word.Text = _currentVocabulary.Word;
@@ -71,13 +72,12 @@ namespace App_Learn_English
 
             if (!String.IsNullOrEmpty(_currentVocabulary.Explain_English))
             {
-                sBuilder_Explain.Append(_currentVocabulary.Explain_English);
+                sBuilder_ExplainEN.Append(_currentVocabulary.Explain_English);
             }
 
             if (!String.IsNullOrEmpty(_currentVocabulary.Explain_Vietnamese))
             {
-                sBuilder_Explain.Append(Environment.NewLine);
-                sBuilder_Explain.Append(_currentVocabulary.Explain_Vietnamese);
+                sBuilder_ExplainVN.Append(_currentVocabulary.Explain_Vietnamese);
             }
 
             if (!String.IsNullOrEmpty(_currentVocabulary.Example))
@@ -85,8 +85,11 @@ namespace App_Learn_English
                 sBuilder_Example.Append(_currentVocabulary.Example);
             }
 
-            memoEdit_Explain.EditValue = Convert.ToString(sBuilder_Explain);
-            memoEdit_Example.EditValue = Convert.ToString(sBuilder_Example);
+            memoEdit_ExplainEN.EditValue = Convert.ToString(sBuilder_ExplainEN).Replace(".", ".\r\n");
+            memoEdit_ExplainVN.EditValue = Convert.ToString(sBuilder_ExplainVN).Replace(".", ".\r\n");
+            memoEdit_Example.EditValue = Convert.ToString(sBuilder_Example).Replace(".", ".\r\n");
+
+            xtraTab_Main.SelectedTabPageIndex = 0;
         }
 
         private void Set_Form_Bottom_Right_Screen()
@@ -133,7 +136,7 @@ namespace App_Learn_English
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void Lbl_DocBottom_Click(object sender, EventArgs e)
+        private void Lbl_Main_Dock_Bottom_Click(object sender, EventArgs e)
         {
             Set_Form_Bottom_Right_Screen();
         }
@@ -166,11 +169,9 @@ namespace App_Learn_English
             {
                 if(_currentVocabulary.STT.Equals(data.STT))
                 {
-                    data.Date_Study = data.Date_Study.AddMinutes(1);
+                    data.Date_Study = DateTime.Now.AddMinutes(1);
                 }    
             }
-
-            Handle_Hide_And_Show_API(false);
 
             Handle_Hide_And_Show_Explain(false);
 
@@ -183,11 +184,9 @@ namespace App_Learn_English
             {
                 if (_currentVocabulary.STT.Equals(data.STT))
                 {
-                    data.Date_Study = data.Date_Study.AddMinutes(10);
+                    data.Date_Study = DateTime.Now.AddMinutes(10);
                 }
             }
-
-            Handle_Hide_And_Show_API(false);
 
             Handle_Hide_And_Show_Explain(false);
 
@@ -200,11 +199,9 @@ namespace App_Learn_English
             {
                 if (_currentVocabulary.STT.Equals(data.STT))
                 {
-                    data.Date_Study = data.Date_Study.AddMinutes(30);
+                    data.Date_Study = DateTime.Now.AddMinutes(30);
                 }
             }
-
-            Handle_Hide_And_Show_API(false);
 
             Handle_Hide_And_Show_Explain(false);
 
@@ -217,11 +214,9 @@ namespace App_Learn_English
             {
                 if (_currentVocabulary.STT.Equals(data.STT))
                 {
-                    data.Date_Study = data.Date_Study.AddDays(1);
+                    data.Date_Study = DateTime.Now.AddDays(1);
                 }
             }
-
-            Handle_Hide_And_Show_API(false);
 
             Handle_Hide_And_Show_Explain(false);
 
@@ -234,11 +229,9 @@ namespace App_Learn_English
             {
                 if (_currentVocabulary.STT.Equals(data.STT))
                 {
-                    data.Date_Study = data.Date_Study.AddDays(5);
+                    data.Date_Study = DateTime.Now.AddDays(5);
                 }
             }
-
-            Handle_Hide_And_Show_API(false);
 
             Handle_Hide_And_Show_Explain(false);
 
@@ -250,35 +243,40 @@ namespace App_Learn_English
             synthesizer.Speak(lbl_Word.Text);
         }
 
-        private void BtnExplain_Click(object sender, EventArgs e)
+        private void btn_Explain_Click(object sender, EventArgs e)
         {
             Handle_Hide_And_Show_Explain(true);
-        }
-        private void btnAPI_Click(object sender, EventArgs e)
-        {
-            Handle_Hide_And_Show_API(true);
 
             synthesizer.Speak(lbl_Word.Text);
         }
 
-        private void Handle_Hide_And_Show_API(bool IsEnableAPI)
-        {
-            btnAPI.Visible = !IsEnableAPI;
-            lbl_API.Visible = IsEnableAPI;
-        }
-
         private void Handle_Hide_And_Show_Explain(bool IsEnableExplain)
         {
-            btnExplain.Visible = !IsEnableExplain;
-            lbl_Explain.Visible = IsEnableExplain;
-            lbl_Example.Visible = IsEnableExplain;
-            memoEdit_Explain.Visible = IsEnableExplain;
+            btn_Explain.Visible = !IsEnableExplain;
+            lbl_API.Visible = IsEnableExplain;
+            memoEdit_ExplainEN.Visible = IsEnableExplain;
+            memoEdit_ExplainVN.Visible = IsEnableExplain;
             memoEdit_Example.Visible = IsEnableExplain;
         }
         
-        private void memoEdit_Explain_MouseUp(object sender, MouseEventArgs e)
+        private void memoEdit_ExplainEN_MouseUp(object sender, MouseEventArgs e)
         {
-            string selectedText = memoEdit_Explain.SelectedText.Trim();
+            string selectedText = memoEdit_ExplainEN.SelectedText.Trim().Replace(",","").Replace(".", "").Replace("[", "").Replace("]", "");
+
+            // Check if have selected text
+            if (!string.IsNullOrEmpty(selectedText))
+            {
+                // Handle event when user selected text
+                string oxfordUrl = $"https://www.oxfordlearnersdictionaries.com/definition/english/{selectedText}";
+
+                // Open Chrome
+                Process.Start("chrome.exe", oxfordUrl);
+            }
+        }
+
+        private void memoEdit_ExplainVN_MouseUp(object sender, MouseEventArgs e)
+        {
+            string selectedText = memoEdit_ExplainVN.SelectedText.Trim().Replace(",", "").Replace(".", "").Replace("[", "").Replace("]", "");
 
             // Check if have selected text
             if (!string.IsNullOrEmpty(selectedText))
@@ -293,7 +291,7 @@ namespace App_Learn_English
 
         private void memoEdit_Example_MouseUp(object sender, MouseEventArgs e)
         {
-            string selectedText = memoEdit_Example.SelectedText.Trim();
+            string selectedText = memoEdit_Example.SelectedText.Replace(",", "").Replace(".", "").Replace("[", "").Replace("]", "");
 
             // Check if have selected text
             if (!string.IsNullOrEmpty(selectedText))

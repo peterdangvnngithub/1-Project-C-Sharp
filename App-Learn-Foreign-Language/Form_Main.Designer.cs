@@ -31,9 +31,8 @@ namespace App_Learn_English
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             this.panel_Top = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbl_Minimize = new System.Windows.Forms.Label();
-            this.lbl_DocBottom = new System.Windows.Forms.Label();
+            this.lbl_Main_Minimize = new System.Windows.Forms.Label();
+            this.lbl_Main_Dock_Bottom = new DevExpress.XtraEditors.LabelControl();
             this.lbl_Close = new System.Windows.Forms.Label();
             this.panelBottom = new System.Windows.Forms.Panel();
             this.lbl_ThirtyMinute = new System.Windows.Forms.Label();
@@ -42,37 +41,46 @@ namespace App_Learn_English
             this.lbl_OneMinute = new System.Windows.Forms.Label();
             this.lbl_FiveDays = new System.Windows.Forms.Label();
             this.panel_Vocabulary = new System.Windows.Forms.Panel();
-            this.panel_Vocabulary_Main = new System.Windows.Forms.Panel();
+            this.panel_Word = new System.Windows.Forms.Panel();
             this.lbl_Word = new System.Windows.Forms.Label();
-            this.panel_Vocabulary_Right = new System.Windows.Forms.Panel();
-            this.btnAPI = new DevExpress.XtraEditors.SimpleButton();
+            this.panel_API = new System.Windows.Forms.Panel();
+            this.btn_Explain = new DevExpress.XtraEditors.SimpleButton();
             this.lbl_loudspeaker = new System.Windows.Forms.Label();
             this.lbl_API = new System.Windows.Forms.Label();
             this.panel_Main = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.memoEdit_Example = new DevExpress.XtraEditors.MemoEdit();
-            this.lbl_Example = new System.Windows.Forms.Label();
+            this.xtraTab_Main = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTab_Explain = new DevExpress.XtraTab.XtraTabPage();
+            this.panel_Example = new System.Windows.Forms.Panel();
+            this.memoEdit_ExplainVN = new DevExpress.XtraEditors.MemoEdit();
+            this.xtraTab_ExplainEN = new DevExpress.XtraTab.XtraTabPage();
             this.panel_Explan = new System.Windows.Forms.Panel();
-            this.btnExplain = new DevExpress.XtraEditors.SimpleButton();
-            this.memoEdit_Explain = new DevExpress.XtraEditors.MemoEdit();
-            this.lbl_Explain = new System.Windows.Forms.Label();
+            this.memoEdit_ExplainEN = new DevExpress.XtraEditors.MemoEdit();
+            this.xtraTab_Example = new DevExpress.XtraTab.XtraTabPage();
+            this.memoEdit_Example = new DevExpress.XtraEditors.MemoEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panel_Top.SuspendLayout();
             this.panelBottom.SuspendLayout();
             this.panel_Vocabulary.SuspendLayout();
-            this.panel_Vocabulary_Main.SuspendLayout();
-            this.panel_Vocabulary_Right.SuspendLayout();
+            this.panel_Word.SuspendLayout();
+            this.panel_API.SuspendLayout();
             this.panel_Main.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit_Example.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTab_Main)).BeginInit();
+            this.xtraTab_Main.SuspendLayout();
+            this.xtraTab_Explain.SuspendLayout();
+            this.panel_Example.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit_ExplainVN.Properties)).BeginInit();
+            this.xtraTab_ExplainEN.SuspendLayout();
             this.panel_Explan.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit_Explain.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit_ExplainEN.Properties)).BeginInit();
+            this.xtraTab_Example.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit_Example.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_Top
             // 
-            this.panel_Top.Controls.Add(this.label1);
-            this.panel_Top.Controls.Add(this.lbl_Minimize);
-            this.panel_Top.Controls.Add(this.lbl_DocBottom);
+            this.panel_Top.Controls.Add(this.labelControl1);
+            this.panel_Top.Controls.Add(this.lbl_Main_Minimize);
+            this.panel_Top.Controls.Add(this.lbl_Main_Dock_Bottom);
             this.panel_Top.Controls.Add(this.lbl_Close);
             this.panel_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_Top.Location = new System.Drawing.Point(5, 5);
@@ -83,44 +91,33 @@ namespace App_Learn_English
             this.panel_Top.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel_Top_MouseMove);
             this.panel_Top.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Panel_Top_MouseUp);
             // 
-            // label1
+            // lbl_Main_Minimize
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(75)))));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "⋮";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Visible = false;
+            this.lbl_Main_Minimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_Main_Minimize.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lbl_Main_Minimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(75)))));
+            this.lbl_Main_Minimize.Location = new System.Drawing.Point(171, 0);
+            this.lbl_Main_Minimize.Name = "lbl_Main_Minimize";
+            this.lbl_Main_Minimize.Size = new System.Drawing.Size(35, 25);
+            this.lbl_Main_Minimize.TabIndex = 3;
+            this.lbl_Main_Minimize.Text = "-";
+            this.lbl_Main_Minimize.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_Main_Minimize.Click += new System.EventHandler(this.Lbl_Minimize_Click);
             // 
-            // lbl_Minimize
+            // lbl_Main_Dock_Bottom
             // 
-            this.lbl_Minimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbl_Minimize.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lbl_Minimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(75)))));
-            this.lbl_Minimize.Location = new System.Drawing.Point(165, 0);
-            this.lbl_Minimize.Name = "lbl_Minimize";
-            this.lbl_Minimize.Size = new System.Drawing.Size(35, 25);
-            this.lbl_Minimize.TabIndex = 3;
-            this.lbl_Minimize.Text = "-";
-            this.lbl_Minimize.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_Minimize.Click += new System.EventHandler(this.Lbl_Minimize_Click);
-            // 
-            // lbl_DocBottom
-            // 
-            this.lbl_DocBottom.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbl_DocBottom.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lbl_DocBottom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(75)))));
-            this.lbl_DocBottom.Location = new System.Drawing.Point(200, 0);
-            this.lbl_DocBottom.Name = "lbl_DocBottom";
-            this.lbl_DocBottom.Size = new System.Drawing.Size(35, 25);
-            this.lbl_DocBottom.TabIndex = 2;
-            this.lbl_DocBottom.Text = "↓";
-            this.lbl_DocBottom.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lbl_DocBottom.Click += new System.EventHandler(this.Lbl_DocBottom_Click);
+            this.lbl_Main_Dock_Bottom.Appearance.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Main_Dock_Bottom.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(75)))));
+            this.lbl_Main_Dock_Bottom.Appearance.Options.UseFont = true;
+            this.lbl_Main_Dock_Bottom.Appearance.Options.UseForeColor = true;
+            this.lbl_Main_Dock_Bottom.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_Main_Dock_Bottom.Location = new System.Drawing.Point(206, 0);
+            this.lbl_Main_Dock_Bottom.Name = "lbl_Main_Dock_Bottom";
+            this.lbl_Main_Dock_Bottom.Size = new System.Drawing.Size(29, 25);
+            this.lbl_Main_Dock_Bottom.TabIndex = 5;
+            this.lbl_Main_Dock_Bottom.Text = "  ↓  ";
+            this.lbl_Main_Dock_Bottom.ToolTip = "Dock To Bottom";
+            this.lbl_Main_Dock_Bottom.Click += new System.EventHandler(this.Lbl_Main_Dock_Bottom_Click);
             // 
             // lbl_Close
             // 
@@ -143,7 +140,7 @@ namespace App_Learn_English
             this.panelBottom.Controls.Add(this.lbl_OneMinute);
             this.panelBottom.Controls.Add(this.lbl_FiveDays);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(5, 243);
+            this.panelBottom.Location = new System.Drawing.Point(5, 225);
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(270, 25);
             this.panelBottom.TabIndex = 9;
@@ -215,22 +212,22 @@ namespace App_Learn_English
             // 
             // panel_Vocabulary
             // 
-            this.panel_Vocabulary.Controls.Add(this.panel_Vocabulary_Main);
-            this.panel_Vocabulary.Controls.Add(this.panel_Vocabulary_Right);
+            this.panel_Vocabulary.Controls.Add(this.panel_Word);
+            this.panel_Vocabulary.Controls.Add(this.panel_API);
             this.panel_Vocabulary.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_Vocabulary.Location = new System.Drawing.Point(5, 30);
             this.panel_Vocabulary.Name = "panel_Vocabulary";
-            this.panel_Vocabulary.Size = new System.Drawing.Size(270, 56);
-            this.panel_Vocabulary.TabIndex = 10;
+            this.panel_Vocabulary.Size = new System.Drawing.Size(270, 61);
+            this.panel_Vocabulary.TabIndex = 0;
             // 
-            // panel_Vocabulary_Main
+            // panel_Word
             // 
-            this.panel_Vocabulary_Main.Controls.Add(this.lbl_Word);
-            this.panel_Vocabulary_Main.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_Vocabulary_Main.Location = new System.Drawing.Point(0, 0);
-            this.panel_Vocabulary_Main.Name = "panel_Vocabulary_Main";
-            this.panel_Vocabulary_Main.Size = new System.Drawing.Size(270, 28);
-            this.panel_Vocabulary_Main.TabIndex = 2;
+            this.panel_Word.Controls.Add(this.lbl_Word);
+            this.panel_Word.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_Word.Location = new System.Drawing.Point(0, 0);
+            this.panel_Word.Name = "panel_Word";
+            this.panel_Word.Size = new System.Drawing.Size(270, 28);
+            this.panel_Word.TabIndex = 2;
             // 
             // lbl_Word
             // 
@@ -240,33 +237,33 @@ namespace App_Learn_English
             this.lbl_Word.Location = new System.Drawing.Point(0, 0);
             this.lbl_Word.Name = "lbl_Word";
             this.lbl_Word.Size = new System.Drawing.Size(270, 28);
-            this.lbl_Word.TabIndex = 2;
+            this.lbl_Word.TabIndex = 0;
             this.lbl_Word.Text = "New Word";
             this.lbl_Word.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // panel_Vocabulary_Right
+            // panel_API
             // 
-            this.panel_Vocabulary_Right.Controls.Add(this.btnAPI);
-            this.panel_Vocabulary_Right.Controls.Add(this.lbl_loudspeaker);
-            this.panel_Vocabulary_Right.Controls.Add(this.lbl_API);
-            this.panel_Vocabulary_Right.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_Vocabulary_Right.Location = new System.Drawing.Point(0, 31);
-            this.panel_Vocabulary_Right.Name = "panel_Vocabulary_Right";
-            this.panel_Vocabulary_Right.Size = new System.Drawing.Size(270, 25);
-            this.panel_Vocabulary_Right.TabIndex = 1;
+            this.panel_API.Controls.Add(this.btn_Explain);
+            this.panel_API.Controls.Add(this.lbl_loudspeaker);
+            this.panel_API.Controls.Add(this.lbl_API);
+            this.panel_API.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel_API.Location = new System.Drawing.Point(0, 31);
+            this.panel_API.Name = "panel_API";
+            this.panel_API.Size = new System.Drawing.Size(270, 30);
+            this.panel_API.TabIndex = 1;
             // 
-            // btnAPI
+            // btn_Explain
             // 
-            this.btnAPI.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAPI.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
-            this.btnAPI.Appearance.Options.UseFont = true;
-            this.btnAPI.Appearance.Options.UseForeColor = true;
-            this.btnAPI.Location = new System.Drawing.Point(87, 2);
-            this.btnAPI.Name = "btnAPI";
-            this.btnAPI.Size = new System.Drawing.Size(75, 23);
-            this.btnAPI.TabIndex = 3;
-            this.btnAPI.Text = "API";
-            this.btnAPI.Click += new System.EventHandler(this.btnAPI_Click);
+            this.btn_Explain.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Explain.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
+            this.btn_Explain.Appearance.Options.UseFont = true;
+            this.btn_Explain.Appearance.Options.UseForeColor = true;
+            this.btn_Explain.Location = new System.Drawing.Point(87, 2);
+            this.btn_Explain.Name = "btn_Explain";
+            this.btn_Explain.Size = new System.Drawing.Size(75, 23);
+            this.btn_Explain.TabIndex = 3;
+            this.btn_Explain.Text = "Explain";
+            this.btn_Explain.Click += new System.EventHandler(this.btn_Explain_Click);
             // 
             // lbl_loudspeaker
             // 
@@ -282,11 +279,12 @@ namespace App_Learn_English
             // 
             // lbl_API
             // 
+            this.lbl_API.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_API.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_API.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(141)))), ((int)(((byte)(188)))));
-            this.lbl_API.Location = new System.Drawing.Point(38, 2);
+            this.lbl_API.Location = new System.Drawing.Point(0, 0);
             this.lbl_API.Name = "lbl_API";
-            this.lbl_API.Size = new System.Drawing.Size(187, 23);
+            this.lbl_API.Size = new System.Drawing.Size(270, 30);
             this.lbl_API.TabIndex = 1;
             this.lbl_API.Text = "API";
             this.lbl_API.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -294,111 +292,144 @@ namespace App_Learn_English
             // 
             // panel_Main
             // 
-            this.panel_Main.Controls.Add(this.panel1);
-            this.panel_Main.Controls.Add(this.panel_Explan);
+            this.panel_Main.Controls.Add(this.xtraTab_Main);
             this.panel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_Main.Location = new System.Drawing.Point(5, 86);
+            this.panel_Main.Location = new System.Drawing.Point(5, 91);
             this.panel_Main.Name = "panel_Main";
-            this.panel_Main.Size = new System.Drawing.Size(270, 157);
-            this.panel_Main.TabIndex = 11;
+            this.panel_Main.Size = new System.Drawing.Size(270, 134);
+            this.panel_Main.TabIndex = 0;
             // 
-            // panel1
+            // xtraTab_Main
             // 
-            this.panel1.Controls.Add(this.memoEdit_Example);
-            this.panel1.Controls.Add(this.lbl_Example);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 95);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(270, 62);
-            this.panel1.TabIndex = 5;
+            this.xtraTab_Main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraTab_Main.Location = new System.Drawing.Point(0, 0);
+            this.xtraTab_Main.Name = "xtraTab_Main";
+            this.xtraTab_Main.SelectedTabPage = this.xtraTab_Explain;
+            this.xtraTab_Main.Size = new System.Drawing.Size(270, 134);
+            this.xtraTab_Main.TabIndex = 2;
+            this.xtraTab_Main.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTab_ExplainEN,
+            this.xtraTab_Explain,
+            this.xtraTab_Example});
+            // 
+            // xtraTab_Explain
+            // 
+            this.xtraTab_Explain.Appearance.Header.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.xtraTab_Explain.Appearance.Header.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
+            this.xtraTab_Explain.Appearance.Header.Options.UseFont = true;
+            this.xtraTab_Explain.Appearance.Header.Options.UseForeColor = true;
+            this.xtraTab_Explain.Controls.Add(this.panel_Example);
+            this.xtraTab_Explain.Name = "xtraTab_Explain";
+            this.xtraTab_Explain.Size = new System.Drawing.Size(268, 109);
+            this.xtraTab_Explain.Text = "Explain VN";
+            // 
+            // panel_Example
+            // 
+            this.panel_Example.Controls.Add(this.memoEdit_ExplainVN);
+            this.panel_Example.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Example.Location = new System.Drawing.Point(0, 0);
+            this.panel_Example.Name = "panel_Example";
+            this.panel_Example.Size = new System.Drawing.Size(268, 109);
+            this.panel_Example.TabIndex = 5;
+            // 
+            // memoEdit_ExplainVN
+            // 
+            this.memoEdit_ExplainVN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.memoEdit_ExplainVN.EditValue = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" +
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+            this.memoEdit_ExplainVN.Location = new System.Drawing.Point(0, 0);
+            this.memoEdit_ExplainVN.Name = "memoEdit_ExplainVN";
+            this.memoEdit_ExplainVN.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.memoEdit_ExplainVN.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
+            this.memoEdit_ExplainVN.Properties.Appearance.Options.UseFont = true;
+            this.memoEdit_ExplainVN.Properties.Appearance.Options.UseForeColor = true;
+            this.memoEdit_ExplainVN.Size = new System.Drawing.Size(268, 109);
+            this.memoEdit_ExplainVN.TabIndex = 4;
+            this.memoEdit_ExplainVN.Visible = false;
+            this.memoEdit_ExplainVN.MouseUp += new System.Windows.Forms.MouseEventHandler(this.memoEdit_ExplainVN_MouseUp);
+            // 
+            // xtraTab_ExplainEN
+            // 
+            this.xtraTab_ExplainEN.Appearance.Header.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xtraTab_ExplainEN.Appearance.Header.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
+            this.xtraTab_ExplainEN.Appearance.Header.Options.UseFont = true;
+            this.xtraTab_ExplainEN.Appearance.Header.Options.UseForeColor = true;
+            this.xtraTab_ExplainEN.Controls.Add(this.panel_Explan);
+            this.xtraTab_ExplainEN.Name = "xtraTab_ExplainEN";
+            this.xtraTab_ExplainEN.Size = new System.Drawing.Size(268, 109);
+            this.xtraTab_ExplainEN.Text = "Explain EN";
+            // 
+            // panel_Explan
+            // 
+            this.panel_Explan.Controls.Add(this.memoEdit_ExplainEN);
+            this.panel_Explan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Explan.Location = new System.Drawing.Point(0, 0);
+            this.panel_Explan.Name = "panel_Explan";
+            this.panel_Explan.Size = new System.Drawing.Size(268, 109);
+            this.panel_Explan.TabIndex = 4;
+            // 
+            // memoEdit_ExplainEN
+            // 
+            this.memoEdit_ExplainEN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.memoEdit_ExplainEN.EditValue = resources.GetString("memoEdit_ExplainEN.EditValue");
+            this.memoEdit_ExplainEN.Location = new System.Drawing.Point(0, 0);
+            this.memoEdit_ExplainEN.Name = "memoEdit_ExplainEN";
+            this.memoEdit_ExplainEN.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.memoEdit_ExplainEN.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
+            this.memoEdit_ExplainEN.Properties.Appearance.Options.UseFont = true;
+            this.memoEdit_ExplainEN.Properties.Appearance.Options.UseForeColor = true;
+            this.memoEdit_ExplainEN.Size = new System.Drawing.Size(268, 109);
+            this.memoEdit_ExplainEN.TabIndex = 2;
+            this.memoEdit_ExplainEN.Visible = false;
+            this.memoEdit_ExplainEN.MouseUp += new System.Windows.Forms.MouseEventHandler(this.memoEdit_ExplainEN_MouseUp);
+            // 
+            // xtraTab_Example
+            // 
+            this.xtraTab_Example.Appearance.Header.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.xtraTab_Example.Appearance.Header.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
+            this.xtraTab_Example.Appearance.Header.Options.UseFont = true;
+            this.xtraTab_Example.Appearance.Header.Options.UseForeColor = true;
+            this.xtraTab_Example.Controls.Add(this.memoEdit_Example);
+            this.xtraTab_Example.Name = "xtraTab_Example";
+            this.xtraTab_Example.Size = new System.Drawing.Size(268, 109);
+            this.xtraTab_Example.Text = "Example";
             // 
             // memoEdit_Example
             // 
             this.memoEdit_Example.Dock = System.Windows.Forms.DockStyle.Fill;
             this.memoEdit_Example.EditValue = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" +
     "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-            this.memoEdit_Example.Location = new System.Drawing.Point(0, 15);
+            this.memoEdit_Example.Location = new System.Drawing.Point(0, 0);
             this.memoEdit_Example.Name = "memoEdit_Example";
             this.memoEdit_Example.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memoEdit_Example.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
             this.memoEdit_Example.Properties.Appearance.Options.UseFont = true;
             this.memoEdit_Example.Properties.Appearance.Options.UseForeColor = true;
-            this.memoEdit_Example.Size = new System.Drawing.Size(270, 47);
-            this.memoEdit_Example.TabIndex = 4;
+            this.memoEdit_Example.Size = new System.Drawing.Size(268, 109);
+            this.memoEdit_Example.TabIndex = 5;
             this.memoEdit_Example.Visible = false;
             this.memoEdit_Example.MouseUp += new System.Windows.Forms.MouseEventHandler(this.memoEdit_Example_MouseUp);
             // 
-            // lbl_Example
+            // labelControl1
             // 
-            this.lbl_Example.AutoSize = true;
-            this.lbl_Example.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl_Example.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Example.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
-            this.lbl_Example.Location = new System.Drawing.Point(0, 0);
-            this.lbl_Example.Name = "lbl_Example";
-            this.lbl_Example.Size = new System.Drawing.Size(58, 15);
-            this.lbl_Example.TabIndex = 2;
-            this.lbl_Example.Text = "Example:";
-            this.lbl_Example.Visible = false;
-            // 
-            // panel_Explan
-            // 
-            this.panel_Explan.Controls.Add(this.btnExplain);
-            this.panel_Explan.Controls.Add(this.memoEdit_Explain);
-            this.panel_Explan.Controls.Add(this.lbl_Explain);
-            this.panel_Explan.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_Explan.Location = new System.Drawing.Point(0, 0);
-            this.panel_Explan.Name = "panel_Explan";
-            this.panel_Explan.Size = new System.Drawing.Size(270, 95);
-            this.panel_Explan.TabIndex = 4;
-            // 
-            // btnExplain
-            // 
-            this.btnExplain.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExplain.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
-            this.btnExplain.Appearance.Options.UseFont = true;
-            this.btnExplain.Appearance.Options.UseForeColor = true;
-            this.btnExplain.Location = new System.Drawing.Point(87, 72);
-            this.btnExplain.Name = "btnExplain";
-            this.btnExplain.Size = new System.Drawing.Size(75, 23);
-            this.btnExplain.TabIndex = 3;
-            this.btnExplain.Text = "Explain";
-            this.btnExplain.Click += new System.EventHandler(this.BtnExplain_Click);
-            // 
-            // memoEdit_Explain
-            // 
-            this.memoEdit_Explain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.memoEdit_Explain.EditValue = resources.GetString("memoEdit_Explain.EditValue");
-            this.memoEdit_Explain.Location = new System.Drawing.Point(0, 15);
-            this.memoEdit_Explain.Name = "memoEdit_Explain";
-            this.memoEdit_Explain.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.memoEdit_Explain.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
-            this.memoEdit_Explain.Properties.Appearance.Options.UseFont = true;
-            this.memoEdit_Explain.Properties.Appearance.Options.UseForeColor = true;
-            this.memoEdit_Explain.Size = new System.Drawing.Size(270, 80);
-            this.memoEdit_Explain.TabIndex = 2;
-            this.memoEdit_Explain.Visible = false;
-            this.memoEdit_Explain.MouseUp += new System.Windows.Forms.MouseEventHandler(this.memoEdit_Explain_MouseUp);
-            // 
-            // lbl_Explain
-            // 
-            this.lbl_Explain.AutoSize = true;
-            this.lbl_Explain.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl_Explain.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Explain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(127)))), ((int)(((byte)(59)))));
-            this.lbl_Explain.Location = new System.Drawing.Point(0, 0);
-            this.lbl_Explain.Name = "lbl_Explain";
-            this.lbl_Explain.Size = new System.Drawing.Size(52, 15);
-            this.lbl_Explain.TabIndex = 0;
-            this.lbl_Explain.Text = "Explain:";
-            this.lbl_Explain.Visible = false;
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(75)))));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Appearance.Options.UseForeColor = true;
+            this.labelControl1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.labelControl1.Location = new System.Drawing.Point(0, 0);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(26, 25);
+            this.labelControl1.TabIndex = 6;
+            this.labelControl1.Text = " ⋮  ";
+            this.labelControl1.ToolTip = "About App";
             // 
             // Form_Main
             // 
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(280, 273);
+            this.ClientSize = new System.Drawing.Size(280, 255);
             this.Controls.Add(this.panel_Main);
             this.Controls.Add(this.panel_Vocabulary);
             this.Controls.Add(this.panelBottom);
@@ -412,17 +443,22 @@ namespace App_Learn_English
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Main_FormClosing);
             this.Load += new System.EventHandler(this.MainView_Load);
             this.panel_Top.ResumeLayout(false);
+            this.panel_Top.PerformLayout();
             this.panelBottom.ResumeLayout(false);
             this.panel_Vocabulary.ResumeLayout(false);
-            this.panel_Vocabulary_Main.ResumeLayout(false);
-            this.panel_Vocabulary_Right.ResumeLayout(false);
+            this.panel_Word.ResumeLayout(false);
+            this.panel_API.ResumeLayout(false);
             this.panel_Main.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit_Example.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTab_Main)).EndInit();
+            this.xtraTab_Main.ResumeLayout(false);
+            this.xtraTab_Explain.ResumeLayout(false);
+            this.panel_Example.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit_ExplainVN.Properties)).EndInit();
+            this.xtraTab_ExplainEN.ResumeLayout(false);
             this.panel_Explan.ResumeLayout(false);
-            this.panel_Explan.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit_Explain.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit_ExplainEN.Properties)).EndInit();
+            this.xtraTab_Example.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit_Example.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -433,28 +469,30 @@ namespace App_Learn_English
         private System.Windows.Forms.Panel panelBottom;
         private System.Windows.Forms.Panel panel_Main;
         private System.Windows.Forms.Panel panel_Vocabulary;
-        private System.Windows.Forms.Panel panel_Vocabulary_Main;
+        private System.Windows.Forms.Panel panel_Word;
         
         private System.Windows.Forms.Label lbl_FiveDays;
         private System.Windows.Forms.Label lbl_OneDay;
         private System.Windows.Forms.Label lbl_TenMinute;
         private System.Windows.Forms.Label lbl_OneMinute;
         private System.Windows.Forms.Label lbl_Word;
-        private System.Windows.Forms.Label lbl_DocBottom;
         private System.Windows.Forms.Label lbl_ThirtyMinute;
-        private DevExpress.XtraEditors.SimpleButton btnAPI;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbl_Minimize;
-        private System.Windows.Forms.Panel panel_Vocabulary_Right;
+        private DevExpress.XtraEditors.SimpleButton btn_Explain;
+        private DevExpress.XtraEditors.LabelControl lbl_Main_Dock_Bottom;
+        private System.Windows.Forms.Label lbl_Main_Minimize;
+        private System.Windows.Forms.Panel panel_API;
         private System.Windows.Forms.Label lbl_loudspeaker;
-        private System.Windows.Forms.Label lbl_Example;
-        private System.Windows.Forms.Label lbl_Explain;
         private System.Windows.Forms.Panel panel_Explan;
-        private DevExpress.XtraEditors.MemoEdit memoEdit_Explain;
-        private System.Windows.Forms.Panel panel1;
-        private DevExpress.XtraEditors.MemoEdit memoEdit_Example;
-        private DevExpress.XtraEditors.SimpleButton btnExplain;
+        private DevExpress.XtraEditors.MemoEdit memoEdit_ExplainEN;
+        private System.Windows.Forms.Panel panel_Example;
+        private DevExpress.XtraEditors.MemoEdit memoEdit_ExplainVN;
         private System.Windows.Forms.Label lbl_API;
+        private DevExpress.XtraTab.XtraTabControl xtraTab_Main;
+        private DevExpress.XtraTab.XtraTabPage xtraTab_Explain;
+        private DevExpress.XtraTab.XtraTabPage xtraTab_ExplainEN;
+        private DevExpress.XtraTab.XtraTabPage xtraTab_Example;
+        private DevExpress.XtraEditors.MemoEdit memoEdit_Example;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }
 
